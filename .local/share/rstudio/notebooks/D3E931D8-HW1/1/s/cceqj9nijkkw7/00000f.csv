@@ -1,0 +1,7 @@
+"0","# your code goes below (make sure to edit comment)
+mean(airquality$Ozone, na.rm = TRUE)
+"
+"1","[1]"
+"1"," 42.12931"
+"1","
+"

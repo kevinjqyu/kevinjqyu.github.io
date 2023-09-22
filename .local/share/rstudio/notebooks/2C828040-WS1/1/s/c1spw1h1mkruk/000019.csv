@@ -1,0 +1,4 @@
+"0",""
+"0","#more elegantly with modulo operator"
+"0","#(x %% y == 0 returns TRUE if x/y has a remainder of 0, FALSE otherwise)"
+"0","cars[cars$speed %% 2 ==0,]"

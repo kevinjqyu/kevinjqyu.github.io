@@ -1,0 +1,9 @@
+"0","# Note: T is shorthand for TRUE, F for FALSE
+which(c(F,T,F,T,F,T))
+"
+"1","[1]"
+"1"," 2"
+"1"," 4"
+"1"," 6"
+"1","
+"

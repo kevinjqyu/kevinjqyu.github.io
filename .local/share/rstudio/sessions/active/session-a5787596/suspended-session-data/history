@@ -1,0 +1,512 @@
+oddNums
+# special formula for sum of odds
+length(oddNums)^2
+# Is it the same as twice the mean of the original data?
+mean(doubleData)==2*mean(data)
+data=doubleData
+# The last pane (SE) shows your files, plots, packages, etc.
+# Let's make a quick plot
+boxplot(data, col="lavender")
+# how do the lines in this boxplot relate to the following quantities
+fivenum(data)
+# You can also flip it over if you want
+boxplot(data,horizontal = T)
+# Or put two side-by-side
+boxplot(data,doubleData)
+# Or combine them together in a single vector using c()
+# This concatenate function let's you combine values into a vector (if all the same type), or list (if different types)
+allData<-c(data,doubleData)
+allData
+boxplot(allData)
+library(ggplot2)
+ggplot(data.frame(data=data),aes(y=data))+geom_boxplot()+scale_x_discrete()
+devtools::install_github("hadley/emo")
+emo::ji("sign of the horns")
+# How about this one
+cumsum(data)
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, fig.align = "center", warning = F, message = F,
+R.options=list(max.print=100))
+# R code goes here
+x <- 5
+y <- 7
+z <- x * y
+z
+#descriptive statistics for both variables
+summary(cars)
+#view first bit of this dataset
+head(cars)
+#grab just third row
+cars[3,]
+#grab just second column
+cars[,2]
+#same as grabbing the column by name
+cars$dist
+#grab element in third row, second column
+cars[3,2]
+##return only rows where speed is over 10 mph
+cars[cars$speed>10,]
+#return even numbered rows
+cars[seq(0,50,by=2),]
+#return rows where the variable speed is an even number
+cars[cars$speed %in% c(2,4,6,8,10,12,14,16,18,20,22,24),]
+#more elegantly with modulo operator
+#(x %% y == 0 returns TRUE if x/y has a remainder of 0, FALSE otherwise)
+cars[cars$speed %% 2 ==0,]
+#mean of each variable
+mean(cars$speed)
+mean(cars$dist)
+#see if you can figure out how apply works
+apply(cars,2,mean)
+plot(cars$speed, cars$dist, pch=16)
+cor.test(cars$speed, cars$dist)
+?mtcars
+head(mtcars)
+# your code goes below (make sure to edit comment)
+head(mtcars)
+ncol(mtcars)
+nrow(mtcars)
+ncol(mtcars)
+nrow(mtcars)
+ky5463 <- mtcars
+View(ky5463)
+# your code goes below (make sure to edit comment)
+ky5463[20,]
+# your code goes below (make sure to edit comment)
+mpggreaterthirty <- ky5463[ky5463$mpg > 30]
+# your code goes below (make sure to edit comment)
+mpggreaterthirty <- ky5463[ky5463$mpg > 30]
+# your code goes below (make sure to edit comment)
+ky5463[ky5463$mpg > 30]
+# your code goes below (make sure to edit comment)
+ky5463[ky5463$mpg > 30,]
+# your code goes below (make sure to edit comment)
+count(ky5463[ky5463$mpg > 30,])
+# your code goes below (make sure to edit comment)
+nrow(ky5463[ky5463$mpg > 30,])
+# Add a new variable to the dataset
+# lg28373$kpl <- lg28373$mpg
+ky5463$kpl <- lg28373$mpg*0.425
+# Add a new variable to the dataset
+# lg28373$kpl <- lg28373$mpg
+ky5463$kpl <- ky5463$mpg*0.425
+head(ky5463)
+head(airquality)
+# your code goes below (make sure to edit comment)
+mean(airquality$Ozone)
+?mean
+# your code goes below (make sure to edit comment)
+mean(airquality$Ozone, na.rm = TRUE)
+**Your answer goes here. Write sentences in bold.**
+print(ky5463$kpl)
+print(ky5463)
+# your code goes below (make sure to edit comment)
+letters
+class(letter)
+class(letters)
+print(letters.length)
+print(length(letters))
+# Save dataset as a dataframe
+ChickWeight <- as.data.frame(ChickWeight)
+# Visualize the first ten rows of the dataset
+head(ChickWeight,10)
+# your code goes below (make sure to edit comment)
+length(ChickWeight)
+# your code goes below (make sure to edit comment)
+table(ChickWeight)
+# your code goes below (make sure to edit comment)
+length(ChickWeight$Chick)
+length(ChickWeight$Time)
+length(ChickWeight$Time)
+Table(ChickWeight$Time)
+Table(ChickWeight$Time)
+table(ChickWeight$Time)
+table(ChickWeight$Time)
+table(ChickWeight$Diet)
+# your code goes below (make sure to edit comment)
+length(ChickWeight$Chick)
+table(ChickWeight$Time)
+table(ChickWeight$Diet)
+# Load package
+library(ggplot2)
+# make the plot
+p1 <- ggplot(anscombe, aes(x=x1, y=y1)) + geom_point()
+# visualize the plot
+ggarrange(p1, p2, p3, p4, labels = c("A", "B", "C", "D"), ncol = 2, nrow = 2)
+View(ChickWeight)
+ggplot(data = ChickWeight, aes(x=Time, y=weight)) + geom_point()
+ggplot(data = ChickWeight, aes(x=Time, y=weight)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") ++ ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")
+ggplot(data = ChickWeight, aes(x=Time, y=weight)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(group = Chick)) + theme(legend.position = "none")
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(group = Chick)) + theme(legend.position = "none")
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(group = Chick)) + theme(legend.position = "none")
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point(aes(color = white)) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(group = Chick)) + theme(legend.position = "none")
+ggplot(ChickWeight) + geom_point(aes(x=Time, y=weight, color = white)) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(x=Time, y=weight, color = Diet)) + theme(legend.position = "none")
+ggplot(ChickWeight) + geom_point(aes(x=Time, y=weight, color = White)) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(x=Time, y=weight, color = Diet)) + theme(legend.position = "none")
+ggplot(ChickWeight) + geom_point(aes(x=Time, y=weight)) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(x=Time, y=weight, color = Diet)) + theme(legend.position = "none")
+ggplot(ChickWeight) +
+geom_line(aes(x=Time, y=weight, color=Chick)) +
+geom_point(aes(x=Time, y=weight))
+ggplot(ChickWeight) +
+geom_line(aes(x=Time, y=weight, color=Chick)) +
+geom_point(aes(x=Time, y=weight)) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color="white")) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color="red")) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color="")) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color="white")) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+p1 <- ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+p1 + facet_wrap(~Diet)
+ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Diet)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+# your code goes below (make sure to edit comment)
+p1 + geom_smooth(method = "lm", se=F)
+# your code goes below (make sure to edit comment)
+ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none") + geom_smooth(method=“lm”, se=F)
+# your code goes below (make sure to edit comment)
+ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none") + geom_smooth(method="lm", se=F)
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(group = Chick)) + theme(legend.position = "none") + geom_smooth(method="lm")
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(group = Chick)) + theme(legend.position = "none") + geom_smooth(method="lm", se=F)
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") +  + theme(legend.position = "none") + geom_smooth(method="lm", se=F)
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + theme(legend.position = "none") + geom_smooth(method="lm", se=F)
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F)
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Chick)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(group = Chick)) + theme(legend.position = "none")
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, Color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F)
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F)
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight,)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F, color = Diet)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F)
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F, color = Diet)
+color = Die
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F, color = Diet)
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F)
+ggplot(data = ChickWeight, aes(x = Diet, y = Weight) + geom_bar(stat = "summary", fun = "mean")
+ggplot(data = ChickWeight, aes(x = Diet, y = Weight) + geom_bar(stat = "summary", fun = "mean"))
+ggplot(ChickWeight, aes(x = Diet, y = weight)) +
+geom_bar(stat = "summary", fun = "mean")
+ggplot(ChickWeight, aes(x = Diet, y = weight)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight$Time == 22, aes(x = Diet, y = weight)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight$Time, aes(x = Diet, y = weight)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight, aes(x = Diet, y = weight)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+table(ChickWeight$Diet)
+table(ChickWeight$Time)
+# your code goes below (make sure to edit comment)
+ggplot(ChickWeight, aes(x = Diet, y = weight)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se)
+# your code goes below (make sure to edit comment)
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5)
+# your code goes below (make sure to edit comment)
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_color_brewer()
+# your code goes below (make sure to edit comment)
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+ggplot(ChickWeight, aes(y = weight, x = Diet)) +
+geom_bar(stat = "summary", fun = "mean") +
+geom_point(aes(color=Diet)) + scale_color_brewer()
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_point(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", size = 3, color ="red") + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_point(stat = "summary", fun = "mean", size = 3, color ="red") + scale_y_continuous(name = "Average weight in grams") + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet))  + scale_y_continuous(name = "Average weight in grams") + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer() + geom_point(stat = "summary", fun = "mean", size = 3, color ="red")
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet))  + scale_y_continuous(name = "Average weight in grams") + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + geom_point(stat = "summary", fun = "mean", size = 10, color ="red")
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet))  + scale_y_continuous(name = "Average weight in grams") + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + geom_point(stat = "summary", fun = "mean", size = 5, color ="red")
+## Plotting distirbutions
+ggplot(data = Orange, aes(x = age, y = circumference)) + geom_boxplot()
+# Make age a factor with as.factor()
+Orange$age<-as.factor(Orange$age)
+ggplot(Orange, aes(x=age, y=circumference)) + geom_boxplot()
+# Boxplots are useful but they hide the true values
+# Overlay points + jitter with geom_jitter()
+# adds random noise so they don't overlap
+# Add transparency via alpha
+ggplot(Orange, aes(x=age, y=circumference)) + geom_boxplot() + geom_jitter(alpha=.5)
+# change color?
+ggplot(Orange, aes(x=age, y=circumference)) + geom_boxplot() +
+geom_jitter(alpha=.5, aes(color=Tree))
+# Let's collapse across Three and age (by leaving it out)
+# Try to view the distribution of tree heights using geom_histogram()
+# Just leave off the y= mapping entirely (what does a histogram have on the y-axis?)
+ggplot(Orange, aes(x=circumference)) + geom_histogram()
+# Try adding fill=age inside of the aes()
+# Why not color=age (try it)
+ggplot(Orange, aes(x=circumference, fill=age)) + geom_histogram(bins=60)
+# Bring the legend inside your plot!
+ggplot(Orange, aes(x=circumference, fill=age)) + geom_histogram(bins=60) +
+theme(legend.position=c(.3,.8), legend.direction = "horizontal")
+# Density plots are smoothed versions of histograms
+ggplot(Orange, aes(x=circumference, fill=age)) +
+geom_density(alpha=0.7, bw=5) +
+theme(legend.position=c(.3,.8), legend.direction = "horizontal")
+# add a rug plot to it
+ggplot(Orange, aes(x=circumference, fill=age)) +
+geom_density(alpha=0.7, bw=5) +  geom_rug() +
+theme(legend.position=c(.3,.8), legend.direction = "horizontal")
+# combine boxplot and density plot
+ggplot(Orange, aes(x=age, y=circumference, fill=age)) +
+geom_violin(trim=F, bw=10)
+# overlay boxplots
+ggplot(Orange, aes(x=age, y=circumference, fill=age)) +
+geom_violin(trim=F, bw=10) + geom_boxplot(width=.1)
+# Take a minute and poke around in this dataset
+data(msleep)
+head(msleep)
+str(msleep)
+# make a scatter plot
+p <- ggplot(msleep, aes(sleep_total, sleep_rem)) + geom_point()
+p
+# let's add geom_smooth()
+p + geom_smooth()
+# linear trend
+p + geom_smooth(method='lm')
+ggplot(msleep, aes(x=sleep_total, y=sleep_rem)) + geom_point(aes(color=vore, size=bodywt))
+# Count of each dietary classification in the dataset
+ggplot(msleep, aes(vore))+geom_bar(stat="count")
+# Let's omit the NAs from the vore variable
+# is.na(x) tests if each element of x is an NA, TRUE if so, FALSE otherwise
+# We negate this using the not operator ! (flips T to F and F to T)
+msleep1<-msleep[!is.na(msleep$vore),] #delete all rows with NA for vore
+ggplot(msleep1, aes(vore))+geom_bar(stat="count")
+# exercise
+ggplot(msleep1, aes(x = vore, fill = vore))+geom_bar()+
+theme(legend.position = "none")+
+ggtitle("Prettier Plot!")+xlab("Dietary Habit")+ylab("Count")
+# Let's create a new categorical variable called size
+# If bodywt is less than the median, then "Small", else "Large"
+msleep1$size <- ifelse(msleep1$bodywt<median(msleep1$bodywt), "Small", "Large")
+str(msleep1)
+# let's plot bar chart again
+# We can add this new variable to the previous plot
+# vore and size are both categorical: geom_bar() knows what to do!
+ggplot(msleep1, aes(x = vore, fill=size))+geom_bar()
+# change the order
+msleep1$size <- factor(msleep1$size,levels = c("Small","Large"))
+ggplot(msleep1, aes(x = vore, fill=size))+geom_bar()
+# instead of stacked, you can stagger the bars with position="dodge"
+ggplot(msleep1, aes(x = vore, fill=size)) +
+geom_bar(position="dodge")
+# Proportions within each level of x-axis variable
+# Here, marginal distribution of size given each vore
+ggplot(msleep1, aes(x = vore, fill=size)) +
+geom_bar(position="fill")
+# Swap the position of the categorical variables
+ggplot(msleep1, aes(x = size, fill=vore)) +
+geom_bar(position="fill")
+ggplot(msleep1, aes(x = vore))+
+geom_bar(aes(y=sleep_total), stat="summary", fun=mean)
+ggplot(msleep1, aes(x = vore, y = sleep_total))+
+geom_bar(stat="summary",fun=mean)+
+geom_errorbar(stat="summary", fun.data=mean_se, width=0.4)
+cw_index <-  filter(ChickWeight,  (Time == 21)) %>%
+group_by(Diet, Time)
+cw_index <-  filter(ChickWeight,  (Time == 21)),
+cw_index <-  filter(ChickWeight,  (Time == 21))
+cw_index <-  filter(ChickWeight,  (Time == 21))
+CW2 <- ChickWeight[ChickWeight$Time == 21]
+CW <- filter(ChickWeight, Time == 0)
+CW <- filter(ChickWeight, Time == 0)
+ChickWeight
+CW <- filter(ChickWeight, Time == 21)
+CW <- filter(ChickWeight, ChickWeight$Time == 21)
+ggplot(CW, aes(x = Diet, y = weight)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21 && True)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21 && TRUE)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+# your code goes below (make sure to edit comment)
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Time == 21)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+View(ChickWeight)
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= (Time==21)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= (Time==21)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21 + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21 + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time ==21)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+# your code goes below (make sure to edit comment)
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+Time
+Diet
+Diet
+View(ChickWeight)
+# Save dataset as a dataframe
+ChickWeight <- as.data.frame(ChickWeight)
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") +
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") +
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F)
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+# your code goes below (make sure to edit comment)
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Time)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+# your code goes below (make sure to edit comment)
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Time)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+# your code goes below (make sure to edit comment)
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Time)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+# your code goes below (make sure to edit comment)
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+# your code goes below (make sure to edit comment)
+ggplot(ChickWeight, aes(x = Diet[Time == 21], y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+# your code goes below (make sure to edit comment)
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+# Visualize the first ten rows of the dataset
+head(ChickWeight,10)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle(" Average Weight of Chicks on Different Diets over the Course of a Few Days for Different Diets") + geom_line(aes(group = Chick))
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point(stat="summary", fun=mean) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle(" Average Weight of Chicks on Different Diets over the Course of a Few Days for Different Diets") + geom_line(aes(group = Chick))
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point(shape = 4) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle(" Average Weight of Chicks on Different Diets over the Course of a Few Days for Different Diets") + geom_line(aes(group = Chick))
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point(shape = 4) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle(" Average Weight of Chicks on Different Diets over the Course of a Few Days for Different Diets") + geom_line(stat="summary", fun=mean)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point(stat="summary", fun=mean, shape = 4) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle(" Average Weight of Chicks on Different Diets over the Course of a Few Days for Different Diets") + geom_line(stat="summary", fun=mean)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point(stat="summary", fun=mean, shape = 4) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle(" Average Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(stat="summary", fun=mean)
+filter(ChickWeight, Time == 21)
+filter(ChickWeight, ChickWeight$Time == 21)
+ChickWeight_bg <- ChickWeight %>% filter((Time == 21)
+ggplot(ChickWeight_bg, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ChickWeight_bg <- ChickWeight %>% filter((Time == 21)
+ChickWeight_bg <- ChickWeight %>% filter((Time == 21))
+ggplot(ChickWeight_bg, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ChickWeight_bg <- ChickWeight %>% filter((Time == 21))
+ChickWeight_bg <-filter(ChickenWeight(Time == 21))
+ChickWeight_bg <-filter(ChickenWeight, (Time == 21))
+View(ChickWeight)
+```{r}
+ggplot(ChickWeight_bg, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+# Save dataset as a dataframe
+ChickWeight <- as.data.frame(ChickWeight)
+filter(ChickenWeight, Time == 21)
+ChickWeight <- as.data.frame(ChickWeight)
+filter(ChickenWeight, Time == 21)
+ChickWeight <- as.data.frame(ChickWeight)filter?
+newCW <- filter(ChickenWeight, Time == 21)
+filtered_data <- ChickenWeight[ChickenWeight$Time == 21, ]
+ChickenWeight <- ChickenWeight
+ChickenWeight <- ChickenWeight()
+# Save dataset as a dataframe
+ChickWeight <- as.data.frame(ChickWeight)
+filtered_data <- ChickWeight[ChickWeight$Time == 21, ]
+ggplot(filtered_data, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+# your code goes below (make sure to edit comment)
+ggplot(filtered_data, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+ggplot(filtered_data, aes(x = Diet, y = weight, fill = Diet))  + scale_y_continuous(name = "Average weight in grams") + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + geom_point(stat = "summary", fun = "mean", size = 5, color ="red")
+ggplot(filtered_data, aes(x = Diet, y = weight, fill = Diet))  + scale_y_continuous(name = "Average weight in grams") + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + geom_point(stat = "summary", fun = "mean", size = 5, color ="red") +theme(legend.position = "none")
+ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, shape = 21, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+# your code goes below (make sure to edit comment)
+p1 <- ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, shape = 21, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+# your code goes below (make sure to edit comment)
+p1 <- ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, shape = 21, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+# your code goes below (make sure to edit comment)
+p1 <- ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+p1 + facet_wrap(~Diet)
+ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+# your code goes below (make sure to edit comment)
+ggplot(filtered_data, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer() + ggtitle(" Average Weight of Chicks on Different Diets at Day 21")
+ggplot(filtered_data, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + ggtitle(" Average Weight of Chicks on Different Diets at Day 21")
+ggplot(filtered_data, aes(x = Diet, y = weight, fill = Diet))  + scale_y_continuous(name = "Average weight in grams") + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + geom_point(stat = "summary", fun = "mean", size = 5, color ="red") +theme(legend.position = "none") + ggtitle(" Average Weight of Chicks on Different Diets at Day 21 with Error")
+data(diamonds)
+library(ggplot2)
+diamonds<-as.data.frame(diamonds)
+View(diamonds)
+nrow(diamonds)
+ncol(diamonds)
+ggplot(data=diamonds, aes(x=price)) + geom_histogram()
+hist(diamonds$price)
+ggplot(data=dataset, aes(x=variae)) + geom_bar()
+ggplot(data=diamonds, aes(x=cut)) + geom_bar()
+barplot(table(diamonds$cut))
+table(barplot$cut)
+table(diamonds$cut)
+ggplot(data=diamonds, aes(x=carat, y=price, color=clarity))+
+geom_point()+ geom_smooth(method="lm")
+ggplot(data=diamonds, aes(x=price, y=depth))+
+geom_point()+ geom_smooth(method="lm")
+ggplot(data=diamonds, aes(x=price, y=depth, color = clarity))+
+geom_point()+ geom_smooth(method="lm")
+ggplot(data=diamonds, aes(x=price)) + geom_histogram() + facet_wrap(~clarity)
+ggplot(data=diamonds, aes(x=price)) + geom_histogram() + facet_wrap(~clarity, sacles ="free_y")
+ggplot(data=diamonds, aes(x=price)) + geom_histogram() + facet_wrap(~clarity, scales ="free_y")
+diamonds$volume <- diamonds$x * diamonds$y * diamonds$z
+View(diamonds)
+ggplot(data=diamonds, aes(x=carat, y=volume)) + geom_point() + geom_smooth(method = "lm")
+bases %in% c("A", "T")
+bases <- c("A", "T", "C", "A", "G", "A")
+bases %in% c("A", "T")
+sum(c(TRUE, FALSE, TRUE))
+mean(c(TRUE, FALSE, TRUE))
+sum(bases == "A")
+mean(bases=="A")
+sum(bases %in% c("A", "T"))
+mean(bases %in% c("A", "T"))
+sum(diamonds$cut %in% c("Ideal","Premium") & diamonds$color %in% c("D", "E") & diamonds$clarity %in% c("IF", VVS1))
+sum(diamonds$cut %in% c("Ideal","Premium") & diamonds$color %in% c("D", "E") & diamonds$clarity %in% c("IF", "VVS1"))
+diamonds$fourC <- ifelse(diamonds$cut %in% c("Ideal","Premium") & diamonds$color %in% c("D", "E") & diamonds$clarity %in% c("IF", "VVS1") & diamonds$carat > quartile(diamonds$carat, .75), "yes", "no")
+diamonds$fourC <- ifelse(diamonds$cut %in% c("Ideal","Premium") & diamonds$color %in% c("D", "E") & diamonds$clarity %in% c("IF", "VVS1") & diamonds$carat > quantile(diamonds$carat, .75), "yes", "no")
+table(diamonds$fourC)
+# Density plots are smoothed versions of histograms
+ggplot(Orange, aes(x=circumference, fill=age)) +
+geom_density(alpha=0.7, bw=5) +
+theme(legend.position=c(.3,.8), legend.direction = "horizontal")
+View(txhousing)
+data
+data
+#glimpse() is a dplyr function similar to str() and head()
+glimpse(txhousing)
+#glimpse() is a dplyr function similar to str() and head()
+glimpse(txhousing)
+library(tidyverse) #IMPORTANT: YOU MUST RUN THIS FIRST!
+library(tidyverse) #IMPORTANT: YOU MUST RUN THIS FIRST!
+data(txhousing)
+#glimpse() is a dplyr function similar to str() and head()
+glimpse(txhousing)
+#glimpse() is a dplyr function similar to str() and head()
+glimpse(txhousing)
+## Chaining functions together with pipes
+```{R}
+txhousing %>%
+filter(year==2015, month==7) %>%
+select(city, median) %>%
+arrange(desc(median))
+chain1 %>% slice(1:10) %>%
+ggplot(aes(x=reorder(city,volume), y=volume))+geom_bar(stat="identity")+coord_flip()
+chain1 <- txhousing %>%
+filter(year==2009, month==1) %>%
+select(-date) %>%
+arrange(desc(volume))
+chain1 %>% slice(1:10) %>%
+ggplot(aes(city,volume)) + geom_bar(stat="identity") + coord_flip()
+chain1 %>% slice(1:10) %>%
+ggplot(aes(x=reorder(city,volume), y=volume))+geom_bar(stat="identity")+coord_flip()
+#create a column called state and put TX in every cell
+txhousing %>% mutate(state="TX")
+#create an average home price variable
+txhousing %>% mutate(average=volume/sales)
+head(txhousing) #where is our new variable? We didn't save it!
+txhousing <- txhousing %>% mutate(average=volume/sales)
+head(txhousing)
+txhousing %>% mutate(`sales_pctile`=ntile(sales,100))
+txhousing %>%
+mutate(logVolume = log10(volume)) %>%
+ggplot(aes(x=logVolume)) + geom_histogram()
+txhousing %>%
+mutate(logVolume = log10(volume)) %>%
+ggplot(aes(x=logVolume)) + geom_histogram()
+txhousing %>% ggplot(aes(x=volume)) + geom_histogram()

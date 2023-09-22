@@ -1,0 +1,184 @@
+---
+title: "HW 3"
+output: html_document
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE,  
+                      warning = FALSE, message = FALSE, 
+                      fig.align = "center",
+                      R.options = list(max.print=100))
+
+# Edit the file starting below
+```
+
+### Enter your name and EID here: Kevin Yu
+
+**You will submit this homework assignment as a HTML file on Canvas.**
+
+*For all questions, include the R commands/functions that you used to find your answer (show R chunk). Answers without supporting code will not receive credit. Write full sentences to describe your findings.*
+
+------------------------------------------------------------------------
+
+### Question 1: (2 pts)
+
+The dataset `ChickWeight` contains information about the weights (in grams) of chicks on four different diets over time (measured at 2-day intervals) as the result of an experiment. The first few observations are listed below.
+
+```{r}
+# Save dataset as a dataframe
+ChickWeight <- as.data.frame(ChickWeight)
+
+# Visualize the first ten rows of the dataset
+head(ChickWeight,10)
+```
+
+Use some combination of `table()` and `length()` to answer the following questions: 
+
+```{r}
+# your code goes below (make sure to edit comment)
+length(ChickWeight$Chick)
+table(ChickWeight$Time)
+table(ChickWeight$Diet)
+
+```
+
+- How many distinct chicks are there?  
+- How many distinct time points?  
+- How many distinct diet conditions?  
+- How many chicks per diet condition at the beginning of the experiment?  
+
+**There is 578 different chicks in this experiment found with the length function. Using the table function we were able to find that there are 12 different time points in the experiment. By applying the table function to the diet condition, we found that there are 4 different diet conditions, 220 chicks in diet 1, 120 chicks in diet 2, 120 chichs in diet 3, and 118 chicks in diet 4**
+
+------------------------------------------------------------------------
+
+### Question 2: (1 pt)
+
+Using the `ggplot2` package, create a simple scatterplot showing chick `weight` (on the y-axis) depending on `Time`. Label the axes including the units of the variables and give the plot a title. How does chick `weight` change over `Time`?
+
+```{r}
+# Load package
+library(ggplot2)
+
+ggplot(data = ChickWeight, aes(x=Time, y=weight)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")
+
+```
+
+**It seems as time increases, the weight of the chicks also increase**
+
+------------------------------------------------------------------------
+
+### Question 3: (2 pts)
+
+Building upon the previous plot, map `Chick` to an aesthetic that assigns a color to each chick’s data points. Add lines that connect each chick’s points together with `geom_line()` (also colored by each chick). Finally, remove the legend. Do all chicks seem to gain weight in the same manner? Why/Why not?
+
+```{r}
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Chick)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(group = Chick)) + theme(legend.position = "none") 
+```
+**The chicks do not all gain weight in the same way. This is because every chich grows differently even when subjected to the same condition. While the values may not all be the same, as the chicks grow older they do tend to gain weight**
+------------------------------------------------------------------------
+
+### Question 4: (1 pt)
+
+Continue modifying the same graph by removing the color from the points only: leave the lines colored by chick, but make all of the points white. Make sure to put the points *on top of* the lines. On which day was the last value of the chicks' weight recorded?
+
+```{r}
+ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none") 
+```
+
+**The 21st day was the last day where the chicks weights are recorded, by putting the geom_point after geom_line we place the points on top of the line (although the points didn't want to be white for some reason)**
+
+------------------------------------------------------------------------
+
+### Question 5: (2 pts)
+
+Now, facet this plot by diet. Can you tell from this new plot which diet results in greater weight? Describe how  the relationship between `weight` and `Time` changes, or not, across the different diets.
+
+```{r}
+# your code goes below (make sure to edit comment)
+p1 <- ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none") 
+p1 + facet_wrap(~Diet)
+```
+
+**It is still hard to tell based on the graph how weight changes after time. Diet 1 and Diet 4 seem to be the most consistent on their end weight but the variance of final weight is a lot higher with Diet 1. Diet 4 also seems to have the higher end weight compared to the two. Diets 2 and 3 have some varied weights but Diet 3 seems to be higher than Diet 2. Overall, Diet 3 or Diet 4 might results in the highest end weight but it is still hard to tell based on the graphs. This was done using the facet_wrap function sorted by the type of Diet**
+
+------------------------------------------------------------------------
+
+### Question 6: (2 pts)
+
+Go back to your plot from question 2 and fit a *linear regression line* (using `method = "lm"` in `geom_smooth()`) to the chicks in each diet with `geom_smooth()`. There should be 4 separate regression lines, one for each diet, each a separate color. Can you see more clearly which diet results in greater weight? Explain.
+
+```{r}
+# your code goes below (make sure to edit comment)
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F)
+```
+
+**After creating the regression lines, we can see that Diet 3 has the highest average end weight, seen by the fact that it has the highest slope and ends on the largest point of the graph. This is followed by Diet 4, then 2 then 1**
+
+------------------------------------------------------------------------
+
+### Question 7: (2 pts)
+
+A scatterplot might not be the best way to visualize this data: it calls attention to the relationship between weight and time, but it can be hard to see the differences between diets. A more traditional approach for exploring the effect of diet would be to construct a bar graph representing group means at the end of the experiment.
+
+Index the data in the `ggplot` function to focus on the last `Time` point. *Hint: Refer to Question 4 or find the max `Time`).* Then create a plot using `geom_bar` where each bar's height corresponds to the average chick weight for each of the four diet conditions. Rename the y-axis to include units (e.g., with scale_y_continuous(`name=`...)) and make the major tick marks go from 0 to 300 by 25 (e.g., with scale_y_continuous(`breaks=`...)). Which diet has the highest mean `weight`? 
+
+```{r}
+filtered_data <- ChickWeight[ChickWeight$Time == 21, ]
+ggplot(filtered_data, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + ggtitle(" Average Weight of Chicks on Different Diets at Day 21")
+
+```
+
+**Diet 3 has the highest mean weight, this was found after filtering the data for Times that equaled 21**
+
+------------------------------------------------------------------------
+
+### Question 8: (2 pts)
+
+Building on the previous graph, add error bars showing + or - 1 SE using `geom_errorbar(stat = "summary")`. Make the error-bars skinnier by adding a `width = 0.5` argument. Color the bars (not the error bars, but the bar graph bars) by diet and change from the default color scheme using a `scale_fill_` or a `scale_color_`. Compare the different diets in terms of variation in `weight`.
+
+```{r}
+# your code goes below (make sure to edit comment)
+ggplot(filtered_data, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer() + ggtitle(" Average Weight of Chicks on Different Diets at Day 21")
+
+```
+
+**From the error bars, we can see that Diet 1 has the least variation in weight, followed by Diet 4, Diet 3, and finally Diet 2. we created the error bars with geom_errorbar**
+
+------------------------------------------------------------------------
+
+### Question 9: (2 pts)
+
+Take your code from question 8 and replace `geom_bar()` with `geom_point()`. Remove the `breaks =` argument from `scale_y_continuous`. Make the points larger and color them all red. Put them *on top of* the error bars. Does the mean chick weight seem to differ based on the diet? *Note: Informally state if they seem to differ and if so, how.*
+
+```{r}
+ggplot(filtered_data, aes(x = Diet, y = weight, fill = Diet))  + scale_y_continuous(name = "Average weight in grams") + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + geom_point(stat = "summary", fun = "mean", size = 5, color ="red") +theme(legend.position = "none") + ggtitle(" Average Weight of Chicks on Different Diets at Day 21 with Error")
+```
+
+**The chick weight does differ depending on the diet, we can see this because the errors of some diets don't overlap, we put geon_point after geom_errorbar, giving us the point in from of the errorbar, then increased the size of the point with the size parameter**
+
+------------------------------------------------------------------------
+
+### Question 10: (2 pts)
+
+One last graph! And a little less guided... It would be even more meaningful to compare the mean `weight` of each `Diet` over `Time`! Use `geom_point` to represent the mean weight over time and `geom_line` to connect the mean weights per diet. Change the shape of the points to be `x` symbols. *Giving you a hint anyway: color by diet and use some `stat` options in the geoms!* Which diet has a constantly lower mean weight over time?
+
+```{r}
+ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point(stat="summary", fun=mean, shape = 4) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle(" Average Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(stat="summary", fun=mean) 
+
+```
+
+**Using the stat parameters in both of the points and lines, we can create a line where the average points and lines are interlinked. Diet 1 has a constant lower mean weight over time**
+
+------------------------------------------------------------------------
+
+### Formatting: (2 pts)
+
+Comment your code, write full sentences, and knit your file!
+
+------------------------------------------------------------------------
+
+```{r, echo=F}
+## DO NOT DELETE THIS BLOCK!
+Sys.info()
+```

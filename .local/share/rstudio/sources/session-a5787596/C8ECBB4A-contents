@@ -1,0 +1,66 @@
+---
+title: "Untitled"
+output: html_document
+date: "2023-09-05"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+x <- runif(n=10000, min=1, max=10)
+x_round <- round(x)
+x_tab <- table(x_round)
+barplot(x_tab)
+
+x_floor <- floor(x)
+x_floortab <- table(x_floor)
+barplot(x_floortab)
+
+x_ceiling <- ceiling(x)
+x_ceilingtab <- table(x_ceiling)
+barplot(x_ceilingtab)
+
+barplot(table(floor(runif(5000,0,11))))
+barplot(table(floor(ceiling(runif(5000,-1,10)))))
+
+
+x <- 1:34
+(365 - x)/365
+1- prod((365 - x)/365)
+
+birthdays <- 1:365
+samp <- sample(birthdays, size=35, replace=T)
+sum(table(samp)>1)
+
+set.seed(322)
+shared_bd <- vector()
+for(i in 1:10000){
+samp <- sample(birthdays, size=35, replace=T)
+shared_bd[i]<- sum(table(samp)>1)
+}
+
+sharedcount <- shared_bd > 0
+table(sharedcount)
+
+`r  knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/d/d8/UT-Tower-in-Orange.jpg")`

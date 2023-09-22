@@ -1,0 +1,145 @@
+---
+title: "HW 1"
+output: html_document
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE,  
+                      warning = FALSE, message = FALSE, 
+                      fig.align = "center",
+                      R.options = list(max.print=100))
+
+```
+
+### Enter your name and EID here: Kevin Yu ky5463
+
+**You will submit this homework assignment as as HTML file on Canvas. PDF or .Rmd submissions receives zero. **
+
+*For all questions, include the R commands/functions that you used to find your answer (show R chunk). Answers without supporting code will not receive credit. Write full sentences to describe your findings.*
+
+------------------------------------------------------------------------
+
+## Part 1:
+
+The dataset `mtcars` was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and other aspects of automobile design and performance for different cars (1973-74 models). Look up the documentation for this data frame with a description of the variables by typing `?mtcars` **in the console** pane.
+
+### Question 1: (2 pt)
+
+Take a look at the first 6 rows of the dataset by using an `R` function in the code chunk below. Have you heard about any (or all) of these cars?
+
+```{r}
+head(mtcars)
+```
+
+**I have never heard about any of these cars but I used the head() function to see the first 6 rows of the dataset**  
+------------------------------------------------------------------------
+
+### Question 2: (2 pts)
+
+How many rows and columns are there in this data frame in total?
+
+```{r}
+ncol(mtcars)
+nrow(mtcars)
+```
+
+**There are 32 rows and 11 columns in this dataframe, achieved by using the nrow() and ncol() functions respectively**  
+------------------------------------------------------------------------
+
+### Question 3: (1 pt)
+
+Save `mtcars` in your environment and name it as your `eid`. From now on, use this new object instead of the built-in dataset.
+
+```{r}
+ky5463 <- mtcars
+
+```
+
+**The dataset mtcars was saved into ky5463, now all data manipulations will be done with the object ky5463**  
+------------------------------------------------------------------------
+
+### Question 4: (2 pts)
+
+When is your birthday? Using indexing, grab the row of `mpg` that corresponds to the day of your birthday (should be a number between 1 and 31).
+
+```{r}
+ky5463[20,]
+```
+
+**My birthday is February 20th, using 20 as the index for the row would give me Toyota Corolla as the row of interest**  
+------------------------------------------------------------------------
+
+### Question 5: (2 pts)
+
+Using logical indexing, count the number of rows in the dataset where the variable `mpg` takes on values greater than 30.
+
+```{r}
+nrow(ky5463[ky5463$mpg > 30,])
+
+```
+
+**There are 4 rows in the dataset where mpg takes a value of greater than 30, this was done through subletting the data then passing it through the nrow() function**  
+------------------------------------------------------------------------
+
+### Question 6: (2 pts)
+
+Let's create a new variable called `kpl` which converts the fuel efficiency `mpg` in kilometers per liter. Knowing that 1 mpg corresponds to 0.425 kpl, complete the following code and calculate the max kpl:
+
+```{r}
+ky5463$kpl <- ky5463$mpg*0.425
+print(ky5463)
+
+```
+
+**I created a new object by multiplying mpg by 0.425 then creating a new variable called kpl**  
+------------------------------------------------------------------------
+
+## Part 2:
+
+Let's quickly explore another built-in dataset: `airquality` which contains information about daily air quality measurements in New York, May to September 1973. 
+
+### Question 7: (2 pts)
+
+Calculate the mean `Ozone` (in ppb) using the `mean()` function. Why does it make sense to get this answer? *Hint: take a look at the column `Ozone` in the dataset.*
+
+```{r}
+mean(airquality$Ozone)
+
+```
+
+**You get [NA], this answer makes sense because there is a character data type in the dataframe, it cannot add all the values together numerically when the value in row 5 is NA**  
+------------------------------------------------------------------------
+
+### Question 8: (2 pts)
+
+Look at the documentation for the function `mean()` by running `?mean` **in the console**. What argument should be used to find the mean value that we were not able to get in the previous question? What type of values does that argument take?
+
+**The argument that should be used to find the mean value would be na.rm = TRUE instead of na.rm = FALSE, This is because na.rm = TRUE would would remove all missing values from the input, removing the NA's from the vector before calculating the mean. The argument takes the binary values of TRUE or FALSE**  
+------------------------------------------------------------------------
+
+### Question 9: (2 pts)
+
+Sometimes the R documentation does not feel complete. We wish we had more information or more examples. Find a post online (include the link) that can help you use that argument in the `mean()` function. Then finally find the mean ozone!
+
+```{r}
+mean(airquality$Ozone, na.rm = TRUE)
+```
+
+**This was the link that I found online that helped me solve the problem with the arguments [Link to resource](https://github.com/LukaIgnjatovic/DataCamp_-_Track_-_Data_Scientist_with_R_-_Course_02_-_Intermediate_R/blob/master/Chapter%2003%20-%20Practice%20-%20Functions.Rmd) By using the argument na.rm = TRUE, I was able to removing the empty values when calculating the mean**
+------------------------------------------------------------------------
+
+## Formatting: (3 pts)
+
+Knit your file! You can knit into html.  
+
+Is it working? If not, try to decipher the error message (look up the error message, consult websites such as [stackoverflow](https://stackoverflow.com/) or [crossvalidated](https://stats.stackexchange.com/) or
+send a message on Ed Discussion. 
+
+PDF or .Rmd submissions receives zero. 
+
+------------------------------------------------------------------------
+
+```{r, echo=F}
+## DO NOT DELETE THIS BLOCK!
+Sys.info()
+```

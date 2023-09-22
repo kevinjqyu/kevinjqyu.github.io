@@ -1,0 +1,1 @@
+2023-09-06T20:59:26.548830Z [rsession-ky5463] ERROR system error 2 (No such file or directory) [path: /proc/2853146/cwd]; OCCURRED AT rstudio::core::FilePath rstudio::core::FilePath::resolveSymlink() const src/cpp/shared_core/FilePath.cpp:1607; LOGGED FROM: rstudio::core::FilePath rstudio::core::FilePath::resolveSymlink() const src/cpp/shared_core/FilePath.cpp:1607

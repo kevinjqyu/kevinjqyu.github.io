@@ -1,0 +1,262 @@
+---
+title: "WS7"
+author: ""
+output: html_document
+---
+
+# Data Wrangling!
+
+Let's do some wrangling!
+
+Take a look at the `txhousing` dataset, built in to the ggplot2 package
+
+```{R}
+library(tidyverse) #IMPORTANT: YOU MUST RUN THIS FIRST!
+data(txhousing)
+
+#glimpse() is a dplyr function similar to str() and head()
+glimpse(txhousing) 
+```
+
+## Chaining functions together with pipes
+
+```{R}
+txhousing %>% filter(year==2015, month==7) %>% select(city, median) %>% arrange(desc(median))
+
+#or, more elegantly (note you must end the line with a pipe)
+
+txhousing %>% 
+  filter(year==2015, month==7) %>% 
+  select(city, median) %>% 
+  arrange(desc(median))
+```
+
+### Practice
+
+Filter to get January 2009, select everything but `date`, sort by `volume` descending, and SAVE IT as chain1
+
+```{R}
+# try it!
+```
+
+Now, we can plot the first ten rows by piping to ggplot
+
+```{R}
+chain1 %>% slice(1:10) %>%
+  ggplot(aes(city,volume)) + geom_bar(stat="identity") + coord_flip()
+``` 
+
+Sort the bars/cities by volume with reorder()
+
+```{R}
+chain1 %>% slice(1:10) %>%
+  ggplot(aes(x=reorder(city,volume), y=volume))+geom_bar(stat="identity")+coord_flip()
+
+``` 
+
+## Create new columns with `mutate()`
+
+Mutate creates new columns, often by modifying old ones!
+
+```{R}
+#create a column called state and put TX in every cell
+txhousing %>% mutate(state="TX") 
+
+#create an average home price variable
+txhousing %>% mutate(average=volume/sales)
+
+head(txhousing) #where is our new variable? We didn't save it!
+
+txhousing <- txhousing %>% mutate(average=volume/sales)
+
+head(txhousing)
+``` 
+
+
+```{R}
+txhousing %>% mutate(`sales_pctile`=ntile(sales,100))
+``` 
+
+
+```{R}
+#recode numeric data to character data (ascending order)
+txhousing <- txhousing %>%
+  mutate(month2 = recode(month,"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"))
+
+head(txhousing)
+
+#recode character data to character data
+txhousing %>% mutate(month2=recode(month2, Jan="Enero", Feb="Febrero"))
+
+``` 
+Modifying text in cells with str_replace
+
+```{R}
+txhousing %>% 
+  filter(city == "Fort Worth") %>%
+  mutate(city = str_replace(city, "Fort", "Ft"))
+```
+
+```{R}
+txhousing %>% 
+  mutate(city= tolower(city))
+```
+
+Using lag to create a percent-increase variable
+
+```{R}
+txhousing %>% 
+  filter(city=="Austin") %>%
+  arrange(year, month) %>% #make sure it's in chronological order 
+  mutate(pct_change = (sales-lag(sales)) / lag(sales)) #compute percent change from previous month 
+
+
+#note mutate adds new columns after the last column in the dataset!
+``` 
+
+
+## Practice
+
+- Create a new variable called logVolume that is the base-10 log of volume and make a histogram of it with ggplot and compare it with the histogram of volume 
+
+```{R}
+# try it!
+```
+
+
+Mutate doesn't really make sense for summary statistics
+
+```{R}
+#create a new column with the average volume, bring it to the front
+txhousing %>% mutate(meanvol=mean(volume)) %>% select(meanvol, everything())
+
+#uh oh, nothing but NAs!
+``` 
+
+
+```{R}
+#we can tell the mean() function to ignore NAs by adding na.rm=T
+
+txhousing %>% mutate(meanvol=mean(volume, na.rm=T)) %>% select(meanvol, everything()) 
+``` 
+
+## Summarize with `summarize()`
+
+`summarize()` computes summary statistics like mean, sd, etc.
+
+```{R}
+txhousing %>% summarize(mean(volume, na.rm=T))
+
+txhousing %>% summarize(n()) #number of rows
+
+txhousing %>% summarize(n_distinct(city)) #number of distinct cities
+
+#can do more than one at once!
+txhousing %>% summarize(mean(volume, na.rm=T), n(), n_distinct(city))
+
+#can give them new names
+txhousing %>% summarize(mean_vol = mean(volume, na.rm=T), n_rows=n(), n_cities= n_distinct(city))
+```
+
+
+Use filter and summarize together
+
+```{R}
+#find mean volume and listings for year 2015 (averaging across all cities)
+
+txhousing %>% filter(year==2015) %>% 
+  summarize(mean(volume,na.rm=T))
+
+#find mean volume and listings for year 2015 in Austin specifically
+
+txhousing %>% filter(year==2015, city=="Austin") %>% 
+  summarize(mean(volume, na.rm=T))
+```
+
+## Practice!
+
+How would you find the standard deviation of volume when the number of sales is above average?
+
+```{R}
+# try it!
+```
+
+
+
+## group_by()
+
+
+Group by city and summarize to find mean and sd of volume for each city
+
+```{R}
+txhousing %>% 
+  group_by(city) %>% 
+  summarize(mean_vol=mean(volume, na.rm=T), sd_vol=sd(volume, na.rm=T))
+```
+Take `txhousing` data set, group by `month`, find the mean sales, and create a plot of this variable by month.
+
+```{R}
+txhousing %>% mutate(month2 = recode(month,"Jan","Feb","Mar","Apr","May",
+                            "Jun","Jul","Aug","Sep","Oct","Nov","Dec")) %>%
+  group_by(month2) %>% summarize(average_sales=mean(sales, na.rm=T)) %>%
+  ggplot(aes(x=month2, y=average_sales)) + geom_bar(stat="identity")
+```
+
+Now let's make this plot more professional!
+
+```{R}
+txhousing %>% mutate(month2 = recode(month,"Jan","Feb","Mar","Apr","May",
+                                     "Jun","Jul","Aug","Sep","Oct","Nov","Dec")) %>%
+  mutate(month2=factor(month2, levels=month2[1:12])) %>%
+  group_by(month2) %>% summarize(average_sales=mean(sales, na.rm=T)) %>%
+  ggplot(aes(x=month2, y=average_sales, fill=average_sales)) + 
+  geom_bar(stat="identity") + theme(legend.position = 'none') + 
+  scale_fill_gradientn(colors=c("blue", "red"))
+
+```
+
+When we found the mean volume for city, we collapsed over month and year. 
+Say we want to collapse across month and find the mean by year in each city
+
+```{R}
+txhousing %>% group_by(city, year) %>% summarize(mean_vol=mean(volume, na.rm=T))
+```
+
+
+Group by year and month, then summarize to find the mean, sd, and count of volume, and error on the mean 
+
+Make a ggplot of these monthly means, faceted by year 
+
+Include error bars manually
+
+
+
+```{R}
+txhousing %>% group_by(year, month) %>% 
+summarize(mean_vol=mean(volume, na.rm=T), sd_vol=sd(volume, na.rm=T), 
+          n=n(), se_vol=sd_vol/sqrt(n)) %>%
+    ggplot(aes(month, mean_vol)) + geom_bar(stat="identity") +
+    geom_errorbar(aes(y=mean_vol, ymin=mean_vol-se_vol, ymax=mean_vol+se_vol))+
+    facet_wrap(~year) + scale_x_continuous(breaks=seq(1,12,2))
+```
+
+
+
+
+```{R}
+txhousing %>% ggplot(aes(month, volume)) + geom_bar(stat="summary", fun=mean) +
+ geom_errorbar(stat="summary", fun.data=mean_se) +
+ facet_wrap(~year) + scale_x_continuous(breaks=seq(1,12,2))
+```
+
+
+
+## Practice!
+
+
+In 2014, are there any cities where the median price is higher than the average price? 
+Recall that we can find average house price by dividing volume by sales 
+
+```{R}
+# try it!
+```

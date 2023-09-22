@@ -1,0 +1,86 @@
+]0;/stor/home/ky5463]0;ky5463@educcomp04: ~[01;32mky5463@educcomp04[00m:[01;34m~[00m$ [K]0;ky5463@educcomp04: ~[01;32mky5463@educcomp04[00m:[01;34m~[00m$  mkdir worksheet
+]0;/stor/home/ky5463]0;ky5463@educcomp04: ~[01;32mky5463@educcomp04[00m:[01;34m~[00m$ cp */stor/work/SDS322E_AF_Fall2023/worksheets/Gettings[KStarted.R ~/worksheet/.
+cp: cannot stat '*/stor/work/SDS322E_AF_Fall2023/worksheets/GettingStarted.R': No such file or directory
+]0;/stor/home/ky5463]0;ky5463@educcomp04: ~[01;32mky5463@educcomp04[00m:[01;34m~[00m$ [K]0;ky5463@educcomp04: ~[01;32mky5463@educcomp04[00m:[01;34m~[00m$ ls / [Kstor.[K/work/SDS3222[KE_AF_Fall2023/worksheets/
+GettingStarted.R  WS1.Rmd
+]0;/stor/home/ky5463]0;ky5463@educcomp04: ~[01;32mky5463@educcomp04[00m:[01;34m~[00m$ ls /stor/work/SDS322E_AF_Fall2023/worksheets/[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccp */stor/work/SDS322E_AF_Fall2023/worksheets/GettingStarted.R ~/worksheet/.
+cp: cannot stat '*/stor/work/SDS322E_AF_Fall2023/worksheets/GettingStarted.R': No such file or directory
+]0;/stor/home/ky5463]0;ky5463@educcomp04: ~[01;32mky5463@educcomp04[00m:[01;34m~[00m$ 2023-08-28T18:24:41.215366Z [rsession-ky5463] ERROR system error 2 (No such file or directory) [description: Error changing directory: '/proc/1523617/cwd']; OCCURRED AT rstudio::core::Error rstudio::core::system::ChildProcess::run() src/cpp/core/system/PosixChildProcess.cpp:743; LOGGED FROM: rstudio::core::Error rstudio::core::system::ChildProcess::run() src/cpp/core/system/PosixChildProcess.cpp:743
+^V[K^V[Kcp */stor/work/SDS322E_AF_Fall2023/worksheets/GettingStarted.R ~/worksheet/.[C[1P[C[1@\[1P[1P[1@ [C[C[C
+]0;/stor/home/ky5463]0;ky5463@educcomp02: ~[01;32mky5463@educcomp02[00m:[01;34m~[00m$ [K]0;ky5463@educcomp02: ~[01;32mky5463@educcomp02[00m:[01;34m~[00m$ cp
+cp                         cpan5.30-x86_64-linux-gnu  cpgr                       cpio-filter                cppw                       
+cpack                      cpanm                      cpgreport                  cpp                        
+--More--[K]0;ky5463@educcomp02: ~[01;32mky5463@educcomp02[00m:[01;34m~[00m$ cp 
+.bash_history     .bashrc           Hello-World.html  .local/           R/                .zfs/             
+.bash_logout      .config/          Hello World.Rmd   .profile          worksheet/        
+]0;ky5463@educcomp02: ~[01;32mky5463@educcomp02[00m:[01;34m~[00m$ cp stor 
+.bash_history     .bashrc           Hello-World.html  .local/           R/                .zfs/             
+.bash_logout      .config/          Hello World.Rmd   .profile          worksheet/        
+]0;ky5463@educcomp02: ~[01;32mky5463@educcomp02[00m:[01;34m~[00m$ cp stor 
+.bash_history     .bashrc           Hello-World.html  .local/           R/                .zfs/             
+.bash_logout      .config/          Hello World.Rmd   .profile          worksheet/        
+]0;ky5463@educcomp02: ~[01;32mky5463@educcomp02[00m:[01;34m~[00m$ cp stor [K[K[K[K[K/stor/
+archiving/    home/         _IS_MOUNTED_  scratch/      system/       work/         
+]0;ky5463@educcomp02: ~[01;32mky5463@educcomp02[00m:[01;34m~[00m$ cp /stor/
+archiving/    home/         _IS_MOUNTED_  scratch/      system/       work/         
+]0;ky5463@educcomp02: ~[01;32mky5463@educcomp02[00m:[01;34m~[00m$ cp /stor/wokr[K[Krk/
+Display all 224 possibilities? (y or n)
+]0;ky5463@educcomp02: ~[01;32mky5463@educcomp02[00m:[01;34m~[00m$ cp /stor/work/[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcd ~ \\\[K[K[K[K[K[K[K[Kgo[Kit clone[K[K[K[K[K[K[K[K[K^V[Kgit clone https://github.com/wjamesTMC/ds-education-
+Cloning into 'ds-education-'...
+Username for 'https://github.com': ^[[A^[[A^[[A^[[B^[[B                    kevinjqyu
+]0;/stor/home/ky5463]0;ky5463@educcomp04: ~[01;32mky5463@educcomp04[00m:[01;34m~[00m$ cp /stor.[K/work/SDS322E_AF_Fall2023/worksheets/WSS.R ~/worksheet/.
+cp: cannot stat '/stor/work/SDS322E_AF_Fall2023/worksheets/WSS.R': No such file or directory
+]0;/stor/home/ky5463]0;ky5463@educcomp04: ~[01;32mky5463@educcomp04[00m:[01;34m~[00m$ [K]0;ky5463@educcomp04: ~[01;32mky5463@educcomp04[00m:[01;34m~[00m$ cp /stor/work/SDS322E_AF_Fall2023/worksheets/WSS.R ~/worksheet/.[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kcp /stor/work/SDS322E_AF_Fall2023/worksheets/WSS.R ~/worksheet/.
+cp: cannot stat '/stor/work/SDS322E_AF_Fall2023/worksheets/WSS.R': No such file or directory
+]0;/stor/home/ky5463]0;ky5463@educcomp04: ~[01;32mky5463@educcomp04[00m:[01;34m~[00m$ cp /stor/work/SDS322E_AF_Fall2023/worksheets/WSS.R ~/worksheet/.[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P ~/worksheet/.[1P ~/worksheet/.[1P ~/worksheet/.[1P ~/worksheet/.[1P ~/worksheet/.[1P ~/worksheet/./ ~/worksheet/.W ~/worksheet/.S ~/worksheet/.5 ~/worksheet/..R ~/worksheet/.
+]0;/stor/home/ky5463]0;ky5463@educcomp01: ~[01;32mky5463@educcomp01[00m:[01;34m~[00m$ [K]0;ky5463@educcomp01: ~[01;32mky5463@educcomp01[00m:[01;34m~[00m$ ^[[Acp /stor/work/SDS322E_AF_Fall2023/worksheets/WS5.R ~/worksheet/.[C[C[C[1P[C[1P[1@S[1@6
+]0;/stor/home/ky5463]0;ky5463@educcomp01: ~[01;32mky5463@educcomp01[00m:[01;34m~[00m$ [K]0;ky5463@educcomp01: ~[01;32mky5463@educcomp01[00m:[01;34m~[00m$ 
+]0;/stor/home/ky5463]0;ky5463@educcomp02: ~[01;32mky5463@educcomp02[00m:[01;34m~[00m$ cp /stor/work/SDS322E_AF_Fall2023/worksheets/WS6.R ~/worksheet/.[2@^[[2@[C[1P[1P[2P[1P[C[C[1@7[C[1@.[1@9[1P[1P[C[C[C
+]0;/stor/home/ky5463]0;ky5463@educcomp02: ~[01;32mky5463@educcomp02[00m:[01;34m~[00m$ cp /stor/work/SDS322E_AF_Fall2023/worksheets/WS7.R ~/worksheet/.[C[1@8[C[1P
+]0;/stor/home/ky5463]0;ky5463@educcomp02: ~[01;32mky5463@educcomp02[00m:[01;34m~[00m$ 2023-09-20T18:11:52.559403Z [rsession-ky5463] ERROR system error 2 (No such file or directory) [description: Error changing directory: '/proc/1182617/cwd']; OCCURRED AT rstudio::core::Error rstudio::core::system::ChildProcess::run() src/cpp/core/system/PosixChildProcess.cpp:743; LOGGED FROM: rstudio::core::Error rstudio::core::system::ChildProcess::run() src/cpp/core/system/PosixChildProcess.cpp:743
+]0;/stor/home/ky5463]0;ky5463@educcomp04: ~[01;32mky5463@educcomp04[00m:[01;34m~[00m$ cp /stor/work/SDS322E_AF_Fall2023/worksheets/WS8.R ~/worksheet/.[1P[1@S7[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@P[9@age Error
+cp: cannot stat '/stor/work/SDS322E_AF_Fall2023/worksheets/WS7Page': No such file or directory
+cp: cannot stat 'Error.R': No such file or directory
+]0;/stor/home/ky5463]0;ky5463@educcomp04: ~[01;32mky5463@educcomp04[00m:[01;34m~[00m$ Internal Server Error. (id: VPS|35a08cb6-8130-415b-9db1-35e1c0907e6a)[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcp /stor/work/SDS322E_AF_Fall2023/worksheets/WS7Page Error.R ~/worksheet/.[11P8[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P ~/worksheet/.[1P ~/worksheet/.[1P ~/worksheet/.1 ~/worksheet/.0 ~/worksheet/.. ~/worksheet/.R ~/worksheet/.[C ~/worksheet/.
+cp: cannot stat '/stor/work/SDS322E_AF_Fall2023/worksheets/W10.R': No such file or directory
+]0;/stor/home/ky5463]0;ky5463@educcomp04: ~[01;32mky5463@educcomp04[00m:[01;34m~[00m$ cp /stor/work/SDS322E_AF_Fall2023/worksheets/W10.R  ~/worksheet/.[C[1P[1P[1P[1P[1@S[1@1[1@0[1@.[1@R
+cp: cannot stat '/stor/work/SDS322E_AF_Fall2023/worksheets/WS10.R': No such file or directory
+]0;/stor/home/ky5463]0;ky5463@educcomp04: ~[01;32mky5463@educcomp04[00m:[01;34m~[00m$ [K]0;ky5463@educcomp04: ~[01;32mky5463@educcomp04[00m:[01;34m~[00m$ [K]0;ky5463@educcomp04: ~[01;32mky5463@educcomp04[00m:[01;34m~[00m$ 2023-09-22T15:43:02.810298Z [rsession-ky5463] ERROR system error 2 (No such file or directory) [description: Error changing directory: '/proc/3038337/cwd']; OCCURRED AT rstudio::core::Error rstudio::core::system::ChildProcess::run() src/cpp/core/system/PosixChildProcess.cpp:743; LOGGED FROM: rstudio::core::Error rstudio::core::system::ChildProcess::run() src/cpp/core/system/PosixChildProcess.cpp:743
+^V[Kmkdir ~/homepage
+]0;/stor/home/ky5463]0;ky5463@educcomp01: ~[01;32mky5463@educcomp01[00m:[01;34m~[00m$ ^V[Kls -a
+ [0m[01;34m.[0m           aasd.Rmd        .bashrc           'Hello World.Rmd'   [01;34mLabs[0m       [01;34mR[0m
+ [01;34m..[0m          .bash_history   [01;34m.config[0m            [01;34mhomepage[0m           [01;34m.local[0m     [01;34mworksheet[0m
+ aasd.html   .bash_logout    Hello-World.html   [01;34mHW[0m                 .profile   [34;42m.zfs[0m
+]0;/stor/home/ky5463]0;ky5463@educcomp01: ~[01;32mky5463@educcomp01[00m:[01;34m~[00m$ git init
+Initialized empty Git repository in /stor/home/ky5463/.git/
+]0;/stor/home/ky5463]0;ky5463@educcomp01: ~[01;32mky5463@educcomp01[00m:[01;34m~[00m$ ls
+ aasd.html   Hello-World.html   [0m[01;34mhomepage[0m   [01;34mLabs[0m   [01;34mworksheet[0m
+ aasd.Rmd   'Hello World.Rmd'   [01;34mHW[0m         [01;34mR[0m
+]0;/stor/home/ky5463]0;ky5463@educcomp01: ~[01;32mky5463@educcomp01[00m:[01;34m~[00m$ ls -a
+ [0m[01;34m.[0m           aasd.Rmd        .bashrc   Hello-World.html   [01;34mHW[0m       .profile    [34;42m.zfs[0m
+ [01;34m..[0m          .bash_history   [01;34m.config[0m  'Hello World.Rmd'   [01;34mLabs[0m     [01;34mR[0m
+ aasd.html   .bash_logout    [01;34m.git[0m      [01;34mhomepage[0m           [01;34m.local[0m   [01;34mworksheet[0m
+]0;/stor/home/ky5463]0;ky5463@educcomp01: ~[01;32mky5463@educcomp01[00m:[01;34m~[00m$ ^C
+]0;/stor/home/ky5463]0;ky5463@educcomp01: ~[01;32mky5463@educcomp01[00m:[01;34m~[00m$ ls -1
+aasd.html
+aasd.Rmd
+Hello-World.html
+'Hello World.Rmd'
+[0m[01;34mhomepage[0m
+[01;34mHW[0m
+[01;34mLabs[0m
+[01;34mR[0m
+[01;34mworksheet[0m
+]0;/stor/home/ky5463]0;ky5463@educcomp01: ~[01;32mky5463@educcomp01[00m:[01;34m~[00m$ ls -l
+total 876
+-rw-r--r-- 1 ky5463 SDS322E_AF_Fall2023 664732 Sep  5 14:34  aasd.html
+-rw-r--r-- 1 ky5463 SDS322E_AF_Fall2023   1580 Sep  5 14:34  aasd.Rmd
+-rw-r--r-- 1 ky5463 SDS322E_AF_Fall2023 646336 Aug 28 13:12  Hello-World.html
+-rw-r--r-- 1 ky5463 SDS322E_AF_Fall2023    833 Aug 28 13:22 'Hello World.Rmd'
+drwxr-xr-x 2 ky5463 SDS322E_AF_Fall2023      3 Sep 22 10:49  [0m[01;34mhomepage[0m
+drwxr-xr-x 2 ky5463 SDS322E_AF_Fall2023      8 Sep 15 18:48  [01;34mHW[0m
+drwxr-xr-x 2 ky5463 SDS322E_AF_Fall2023      3 Sep 19 08:39  [01;34mLabs[0m
+drwxr-xr-x 3 ky5463 SDS322E_AF_Fall2023      3 Aug 21 13:19  [01;34mR[0m
+drwxr-xr-x 2 ky5463 SDS322E_AF_Fall2023     10 Sep 20 13:13  [01;34mworksheet[0m
+]0;/stor/home/ky5463]0;ky5463@educcomp01: ~[01;32mky5463@educcomp01[00m:[01;34m~[00m$ git add . 
+warning: could not open directory '.zfs/shares/': Stale file handle

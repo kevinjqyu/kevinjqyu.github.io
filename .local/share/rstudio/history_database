@@ -1,0 +1,1252 @@
+1692815667127:mdkir worksheet
+1692815682688:$ mdkir worksheet
+1692816002938:# Put your cursor anywhere on the line below and hit ctrl+enter
+1692816002941:print("hello world")
+1692816006400:9*9
+1692816008494:9^2
+1692816009137:1:100
+1692816013068:1:100*2
+1692816017462:# Notice that order of operations applies here!
+1692816017464:6/2*(1+2)
+1692816022896:6/(2*(1+2))
+1692816027034:# Base R comes with many built-in calculator functions
+1692816027037:log10(1000)
+1692816030804:log(exp(3))
+1692816036277:sin(pi)
+1692816038295:sum(1:100)
+1692816039300:prod(1:100)
+1692816041067:factorial(100)
+1692816044041:choose(100,2)
+1692816058154:choose()
+1692816072742:?sum
+1692816079209:# Highlight JUST the "2+2" part below and hit ctrl+enter (or press "run")
+1692816079211:is.numeric(2+2)
+1692816082307:is.numeric("4")
+1692816088004:is.numeric("A")
+1692816088481:is.character("A")
+1692816095247:# Your results have been popping out in the console pane below (SW)
+1692816095250:# Here you can directly run R commands!
+1692816095252:# Type (or paste) the expression below into your console
+1692816095254:100*101/2
+1692816123952:## This thing is an assignment operator: <-
+1692816123955:hi <- "hello world"
+1692816126124:hi = "hello world"
+1692816129462:"goodbye world" -> bye
+1692816138155:hiTwice=rep(hi,2)
+1692816144523:# This creates a sequence of integers from 10 to 1 and stores it in the vector object "data"
+1692816144525:data=10:1
+1692816153363:# Notice also that "data" never appeared in the console, it just got stored.
+1692816153366:# To run it, just type the word data and hit enter (or run the line below)
+1692816153368:data
+1692816155580:2==3
+1692816158237:2>2
+1692816160890:# How many individual values does our "data" vector contain (i.e., how long is this vector)?
+1692816160893:length(data)
+1692816168707:# If we want ascending order, we can reverse it and then overwrite the old object. Let's do that.
+1692816168710:data<-rev(data)
+1692816170327:data
+1692816173342:# Now let's remove it momentarily with the rm() function
+1692816173344:rm(data)
+1692816191907:# This creates a sequence of integers from 10 to 1 and stores it in the vector object "data"
+1692816191910:data=10:1
+1692816201530:# Now that you've got it back, check to see what the first and last elements are
+1692816201533:# We use brackets to index a vector (which is a list of elements of the same type)
+1692816201535:data[1]
+1692816202877:data[10]
+1692816204127:data[1:3]
+1692816205992:data[11]
+1692816207963:# Let's add up all of them using the sum() function
+1692816207965:sum(data)
+1692816210932:# What about this?
+1692816210935:cumsum(data)/sum(data)
+1692816300127:# We can add 1 to every datapoint (many operations are vectorized)
+1692816300130:dataPlusOne<-data+1
+1692816301764:dataPlusOne
+1692816302728:dataPlusOne-1
+1692816304631:# Multiply every original datapoint by 2
+1692816304634:doubleData<-data*2
+1692816305843:doubleData
+1692816310005:# OK, what does this do?
+1692816310008:diff(doubleData)
+1692816312362:diff(data)
+1692816322397:# Bonus: what's going on here?!
+1692816322400:diff(cumsum(data))
+1692816333231:# Sum the vector containing the doubled data
+1692816333233:sum(doubleData) # or sum(data*2)
+1692816338132:length(doubleData)*(length(doubleData)+1)
+1692816345618:# What's the average value?
+1692816345620:mean(doubleData)
+1692816347346:# special formula for sum of evens
+1692816347348:sum(doubleData)/length(doubleData)
+1692816351234:# How can we get all the odd numbers from 1 to 19?
+1692816351237:oddNums<-doubleData-1
+1692816354577:oddNums
+1692816362218:# special formula for sum of odds
+1692816362221:length(oddNums)^2
+1692816368602:# Is it the same as twice the mean of the original data?
+1692816368604:mean(doubleData)==2*mean(data)
+1692816370348:data=doubleData
+1692816375264:# The last pane (SE) shows your files, plots, packages, etc.
+1692816375266:# Let's make a quick plot
+1692816375269:boxplot(data, col="lavender")
+1692816379106:# how do the lines in this boxplot relate to the following quantities
+1692816379110:fivenum(data)
+1692816380897:# You can also flip it over if you want
+1692816380900:boxplot(data,horizontal = T)
+1692816383066:# Or put two side-by-side
+1692816383069:boxplot(data,doubleData)
+1692816386461:# Or combine them together in a single vector using c()
+1692816386463:# This concatenate function let's you combine values into a vector (if all the same type), or list (if different types)
+1692816386466:allData<-c(data,doubleData)
+1692816387508:allData
+1692816388712:boxplot(allData)
+1692816390069:library(ggplot2)
+1692816393245:ggplot(data.frame(data=data),aes(y=data))+geom_boxplot()+scale_x_discrete()
+1692816397330:devtools::install_github("hadley/emo")
+1692816400485:emo::ji("sign of the horns")
+1692817307088:# How about this one
+1692817307090:cumsum(data)
+1693247148867:knitr::opts_chunk$set(echo = TRUE, eval = TRUE, fig.align = "center", warning = F, message = F,
+1693247148893:R.options=list(max.print=100))
+1693247149053:# R code goes here
+1693247149056:x <- 5
+1693247149064:y <- 7
+1693247149068:z <- x * y
+1693247149072:z
+1693247178888:#descriptive statistics for both variables
+1693247178891:summary(cars)
+1693247178914:#view first bit of this dataset
+1693247178918:head(cars)
+1693247178935:#grab just third row
+1693247178939:cars[3,]
+1693247179058:#grab just second column
+1693247179061:cars[,2]
+1693247179099:#same as grabbing the column by name
+1693247179104:cars$dist
+1693247179142:#grab element in third row, second column
+1693247179146:cars[3,2]
+1693247179153:##return only rows where speed is over 10 mph
+1693247179156:cars[cars$speed>10,]
+1693247179171:#return even numbered rows
+1693247179174:cars[seq(0,50,by=2),]
+1693247179188:#return rows where the variable speed is an even number
+1693247179193:cars[cars$speed %in% c(2,4,6,8,10,12,14,16,18,20,22,24),]
+1693247179212:#more elegantly with modulo operator
+1693247179215:#(x %% y == 0 returns TRUE if x/y has a remainder of 0, FALSE otherwise)
+1693247179218:cars[cars$speed %% 2 ==0,]
+1693247179246:#mean of each variable
+1693247179251:mean(cars$speed)
+1693247179258:mean(cars$dist)
+1693247179264:#see if you can figure out how apply works
+1693247179267:apply(cars,2,mean)
+1693247321784:plot(cars$speed, cars$dist, pch=16)
+1693247328306:cor.test(cars$speed, cars$dist)
+1693419386037:print("No reciprocal for 0.")
+1693419394867:if ( a != 0 ){
+1693419394873:print(1/a)
+1693419394876:} else {
+1693419394880:print("No reciprocal for 0.")
+1693419394882:}
+1693419398744:a <- 0
+1693419400808:if ( a != 0 ){
+1693419400813:print(1/a)
+1693419400817:} else {
+1693419400820:print("No reciprocal for 0.")
+1693419400824:}
+1693419411763:# load data
+1693419411769:library(dslabs)
+1693419414996:# a dataset of US gun murders by state for 2010
+1693419415001:data(murders)
+1693419416284:head(murders)
+1693419422812:# compute murder rate
+1693419422816:murder_rate <- murders$total / murders$population * 100000
+1693419430965:# find the index of state with the lowest murder rate.
+1693419430969:ind <- which.min(murder_rate)
+1693419461852:if(murder_rate[ind] < 0.5){
+1693419461854:print(murders$state[ind])
+1693419461857:} else{
+1693419461859:print("No state has murder rate less than 0.5")
+1693419461861:}
+1693419469492:# what is the merderer rate for the state of vermont?
+1693419469496:murder_rate[ind]
+1693419473791:# compute murder rate
+1693419473796:murder_rate <- murders$total / murders$population*100000
+1693419475324:any(murder_rate < 0.5)
+1693419481995:# exercise #1:
+1693419481999:# Q1. have ever atmospheric carbon dioxide
+1693419482002:# Q2. concentration reached 500 ppm level? How about 400 ppm?
+1693419482006:# Q3. Which years did it reach above 400 ppm level?
+1693419482009:data(historic_co2)
+1693419673266:head(historic_co2)
+1693420200670:any(historic_co2$co2 >= 500)
+1693420214870:any(historic_co2$co2 >= 400)
+1693420481806:abovefourhundred[] <- historic_co2[historic_co2$co2 >= 400]
+1693420556115:historic_co2$year[historic_co2$co2 >= 400]
+1693604962915:?mtcars
+1693604987079:head(mtcars)
+1693605016257:# your code goes below (make sure to edit comment)
+1693605016263:head(mtcars)
+1693605273955:ncol(mtcars)
+1693605292116:nrow(mtcars)
+1693605300996:ncol(mtcars)
+1693605303689:nrow(mtcars)
+1693605380905:ky5463 <- mtcars
+1693605384238:View(ky5463)
+1693605579462:# your code goes below (make sure to edit comment)
+1693605579469:ky5463[20,]
+1693605968816:# your code goes below (make sure to edit comment)
+1693605968822:mpggreaterthirty <- ky5463[ky5463$mpg > 30]
+1693605995236:# your code goes below (make sure to edit comment)
+1693605995247:mpggreaterthirty <- ky5463[ky5463$mpg > 30]
+1693606110352:# your code goes below (make sure to edit comment)
+1693606110362:ky5463[ky5463$mpg > 30]
+1693606185199:# your code goes below (make sure to edit comment)
+1693606185207:ky5463[ky5463$mpg > 30,]
+1693606199745:# your code goes below (make sure to edit comment)
+1693606199753:count(ky5463[ky5463$mpg > 30,])
+1693606210957:# your code goes below (make sure to edit comment)
+1693606210965:nrow(ky5463[ky5463$mpg > 30,])
+1693606333458:# Add a new variable to the dataset
+1693606333464:# lg28373$kpl <- lg28373$mpg
+1693606333471:ky5463$kpl <- lg28373$mpg*0.425
+1693606339454:# Add a new variable to the dataset
+1693606339464:# lg28373$kpl <- lg28373$mpg
+1693606339474:ky5463$kpl <- ky5463$mpg*0.425
+1693606363384:head(ky5463)
+1693606589105:head(airquality)
+1693606638433:# your code goes below (make sure to edit comment)
+1693606638440:mean(airquality$Ozone)
+1693606713198:?mean
+1693607495092:# your code goes below (make sure to edit comment)
+1693607495099:mean(airquality$Ozone, na.rm = TRUE)
+1693607625338:**Your answer goes here. Write sentences in bold.**
+1693608717815:print(ky5463$kpl)
+1693608729517:print(ky5463)
+1693938551112:data <- 1:20
+1693938551147:data <- data*2-1
+1693938551151:data <- rev(data)
+1693938551154:data[1]
+1693938567006:2!=3
+1693938588017:(5>4 | 2==3) & (3!=4 & 7<10)
+1693938702676:c(1,5)
+1693938716391:c?
+1693938717930:**The dataset mtcars was saved into ky5463, now all data manipulations will be done with the object ky5463**
+1693938765256:x<-c("dog", "cat", "lizard")
+1693938765263:y<-c("mouse", "lizard", "bird")
+1693938765270:x %in% y
+1693938868801:Data1 <- 1
+1693938880794:^_^ <- 1
+1693938890077:1st <- 1
+1693938903738:@potus <- 1
+1693938924839:x<-c("dog", "cat", "lizard")
+1693938924846:y<-c("mouse", "lizard", "bird")
+1693938924852:z<-c(y, x)
+1693938929477:z
+1693938959215:x<-list(number=333, logical=TRUE, character="weemp womp")
+1693938959220:x
+1693938968620:class(x[1])
+1693938980842:class(x[[1]])
+1693940913154:x <- runif(n=10000, min=1, max=10)
+1693940913160:x_round <- round(x)
+1693940913164:x_tab <- table(x_round)
+1693940913182:barplot(x_tab)
+1693940934809:x <- runif(n=10000, min=1, max=10)
+1693940934816:x_round <- round(x)
+1693940934821:x_tab <- table(x_round)
+1693940934840:barplot(x_tab)
+1693941022232:x_floor <- floor(x)
+1693941022237:x_floortab <- table(x_floor)
+1693941022265:barplot(x_floortab
+1693941024391:x_floor <- floor(x)
+1693941041136:x_floor <- floor(x)
+1693941041141:x_floortab <- table(x_floor)
+1693941041158:barplot(x_floortab)
+1693941093243:x_ceiling <- ceiling(x)
+1693941093247:x_ceilingtab <- table(x_ceiling)
+1693941093262:barplot(x_ceilingtab)
+1693941112441:floor(runif(5000,0,11))
+1693941167337:barplot(table(floor(runif(5000,0,11))))
+1693941192696:barplot(table(floor(runif(5000,0,11))))
+1693941192723:barplot(table(floor(round(runif(5000,-1,11)))))
+1693941204170:barplot(table(floor(runif(5000,0,11))))
+1693941204194:barplot(table(floor(sample(0:10, size=5000, replace=T)))))
+1693941226188:barplot(table(floor(runif(5000,0,11))))
+1693941226215:barplot(table(floor(ceiling(runif(5000,-1,10))))))
+1693941231981:barplot(table(floor(runif(5000,0,11))))
+1693941232006:barplot(table(floor(ceiling(runif(5000,-1,10)))))
+1693941282237:sample?
+1693941283524:barplot(table(floor(runif(5000,0,11))))
+1693941289444:sample?
+1693941300567:?sample
+1693941682137:x <- 1:35
+1693941682143:365 - x
+1693941712528:x <- 1:35
+1693941712535:sum((365 - x)/365)
+1693941728367:x <- 1:35
+1693941728372:(365 - x)/365
+1693941813579:x <- 1:34
+1693941813590:(365 - x)/365
+1693941813599:prod((365 - x)/365)
+1693941825485:x <- 1:34
+1693941825493:(365 - x)/365
+1693941825500:1- prod((365 - x)/365)
+1693941947083:set.seed(322)
+1693941947091:shared_bd <- vector()
+1693941947098:for(i in 1:10000){
+1693941947105:samp <- sample(birthdays, size=35, replace=T)
+1693941947110:shared_bd[i]<- sum(table(samp)>1)
+1693941947116:}
+1693941956902:birthdays <- 1:365
+1693941956911:samp <- sample(birthdays, size=35, replace=T)
+1693941956915:sum(table(samp)>1)
+1693941958096:set.seed(322)
+1693941958125:shared_bd <- vector()
+1693941958154:for(i in 1:10000){
+1693941958164:samp <- sample(birthdays, size=35, replace=T)
+1693941958168:shared_bd[i]<- sum(table(samp)>1)
+1693941958172:}
+1693942138786:shared_bd > 0
+1693942177810:count(shared_bd > 0 == TRUE)
+1693942212907:sharedcount <- shared_bd > 0
+1693942232670:sharedcount <- shared_bd > 0
+1693942232678:count(sharedcount == TRUE)
+1693942302499:sharedcount <- shared_bd > 0
+1693942302506:table(sharedcount)
+1694023801059:# anscombe data set is already pre-loaded for you let's see
+1694023801077:# what we have in this data set
+1694023801079:data(anscombe)
+1694023807867:c(mean(anscombe$x1), mean(anscombe$y1), sd(anscombe$x1), sd(anscombe$y1), cor(anscombe$x1, anscombe$y1))
+1694023818714:c(mean(anscombe$x2), mean(anscombe$y2), sd(anscombe$x2), sd(anscombe$y2), cor(anscombe$x2, anscombe$y2))
+1694023820528:c(mean(anscombe$x3), mean(anscombe$y3), sd(anscombe$x3), sd(anscombe$y3), cor(anscombe$x3, anscombe$y3))
+1694023821065:c(mean(anscombe$x4), mean(anscombe$y4), sd(anscombe$x4), sd(anscombe$y4), cor(anscombe$x4, anscombe$y4))
+1694023849736:View(anscombe)
+1694023967852:library(ggplot2)
+1694023968552:library(ggpubr)
+1694023969983:# make the plot
+1694023969985:p1 <- ggplot(anscombe, aes(x=x1, y=y1)) + geom_point()
+1694023970425:p2 <- ggplot(anscombe, aes(x=x2, y=y2)) + geom_point()
+1694023971077:p3 <- ggplot(anscombe, aes(x=x3, y=y3)) + geom_point()
+1694023971510:p4 <- ggplot(anscombe, aes(x=x4, y=y4)) + geom_point()
+1694023972686:# visualize the plot
+1694023972688:ggarrange(p1, p2, p3, p4, labels = c("A", "B", "C", "D"), ncol = 2, nrow = 2)
+1694026172081:# Starts with stars data frame
+1694026172084:data(stars)
+1694026173153:# let's take a look at stars data set
+1694026173155:head(stars)
+1694026173913:# Initiate a ggplot object
+1694026173915:# make a scatter plot, geom_point
+1694026173917:# aes() maps variables to x and y-axis  (x = magnitude, y = temp)
+1694026173920:ggplot(data=stars, aes(x=magnitude, y=temp)) + geom_point()
+1694026177358:# now let's change the scale
+1694026177360:ggplot(data=stars, aes(x=magnitude, y=temp)) + geom_point() + scale_y_log10()
+1694026179940:# color code them based on their type
+1694026179942:ggplot(data=stars, aes(x=magnitude, y=temp, col=type)) + geom_point() + scale_y_log10()
+1694026183843:# Initiate a ggplot object
+1694026183845:# make a scatter plot, geom_point
+1694026183847:# aes() maps variables to x and y-axis  (x = magnitude, y = temp)
+1694026183849:ggplot(data=stars, aes(x=magnitude, y=temp)) + geom_point()
+1694026186237:# now let's change the scale
+1694026186238:ggplot(data=stars, aes(x=magnitude, y=temp)) + geom_point() + scale_y_log10()
+1694026189287:# now let's change the scale
+1694026189289:ggplot(data=stars, aes(x=magnitude, y=temp)) + geom_point() + scale_y_log10()
+1694026191924:# Initiate a ggplot object
+1694026191926:# make a scatter plot, geom_point
+1694026191928:# aes() maps variables to x and y-axis  (x = magnitude, y = temp)
+1694026191930:ggplot(data=stars, aes(x=magnitude, y=temp)) + geom_point()
+1694026194310:# now let's change the scale
+1694026194313:ggplot(data=stars, aes(x=magnitude, y=temp)) + geom_point() + scale_y_log10()
+1694026195719:# color code them based on their type
+1694026195722:ggplot(data=stars, aes(x=magnitude, y=temp, col=type)) + geom_point() + scale_y_log10()
+1694196363398:# your code goes below (make sure to edit comment)
+1694196363402:letters
+1694196775994:class(letter)
+1694196780142:class(letters)
+1694196793047:print(letters.length)
+1694196805375:print(length(letters))
+1694197054990:# your code goes below (make sure to edit comment)
+1694197054999:count(letters %in% test == FALSE)
+1694197248766:# your code goes below (make sure to edit comment)
+1694197248776:lettersfalse <- letters %in% test
+1694197254709:test <- unlist(strsplit("test", split = ""))
+1694197258657:# your code goes below (make sure to edit comment)
+1694197258667:lettersfalse <- letters %in% test
+1694197275968:table(lettersfalse)
+1694197381414:count(lettersfalse == FALSE)
+1694197408552:table(lettersfalse)
+1694197476798:# Note: T is shorthand for TRUE, F for FALSE
+1694197476809:which(c(F,T,F,T,F,T))
+1694197580211:# your code goes below (make sure to edit comment)
+1694197580221:which(letters %in% name_v)
+1694197583480:# Define name as a vector
+1694197583490:name_v <- unlist(strsplit("arya", split = ""))
+1694197585453:# your code goes below (make sure to edit comment)
+1694197585463:which(letters %in% name_v)
+1694197715908:# Define name as a vector
+1694197715918:name_v <- unlist(strsplit("arysa", split = ""))
+1694197718803:# your code goes below (make sure to edit comment)
+1694197718813:which(letters %in% name_v)
+1694198075449:for(i in 1:n) {
+1694198075463:xs[i] <- letters %in% name_v
+1694198075472:}
+1694198078843:# your code goes below (make sure to edit comment)
+1694198078859:n = len(name_v)
+1694198079775:positions <- vector(length = n)
+1694198081467:for(i in 1:n) {
+1694198081478:xs[i] <- letters %in% name_v
+1694198081487:}
+1694198117162:# your code goes below (make sure to edit comment)
+1694198117172:n = len(name_v)
+1694198117399:positions <- vector(length = n)
+1694198117847:for(i in 1:n) {
+1694198117856:positions[i] <- letters %in% name_v
+1694198117866:}
+1694198135466:# your code goes below (make sure to edit comment)
+1694198135476:n = len(name_v)
+1694198143703:# your code goes below (make sure to edit comment)
+1694198143714:n = length(name_v)
+1694198144388:positions <- vector(length = n)
+1694198145032:for(i in 1:n) {
+1694198145041:positions[i] <- letters %in% name_v
+1694198145050:}
+1694198171103:# your code goes below (make sure to edit comment)
+1694198171114:n = length(name_v)
+1694198171424:positions <- vector(length = n)
+1694198171731:for(i in 1:n) {
+1694198171741:positions[i] <- letters %in% name_v[i]
+1694198171751:}
+1694198243256:positions[i] <- which(letters %in% name_v[i])
+1694198256298:print(postions)
+1694198260815:print(positions)
+1694198480252:# Define name as a vector
+1694198480262:name_v <- unlist(strsplit("arya", split = ""))
+1694198484324:# your code goes below (make sure to edit comment)
+1694198484334:n = length(name_v)
+1694198484858:positions <- vector(length = n)
+1694198485341:for(i in 1:n) {
+1694198485350:positions[i] <- which(letters %in% name_v[i])
+1694198485360:}
+1694198486055:print(positions)
+1694198534949:letters[c(1, 18, 25, 1)]
+1694198690443:# your code goes below (make sure to edit comment)
+1694198690452:newpositions <- positions[] + 1
+1694198724449:letters[newpositions]
+1694198740800:letters[positions)]
+1694198748058:letters[positions]
+1694199080005:# your code goes below (make sure to edit comment)
+1694199080014:get_position <- function(x) {
+1694199080023:names <- unlist(strsplit(x, split = ""))
+1694199080033:n = length(names)
+1694199080042:positions <- vector(length = n)
+1694199080051:for(i in 1:n) {
+1694199080061:positions[i] <- which(letters %in% names[i])
+1694199080078:}
+1694199080087:print(positions)
+1694199080096:}
+1694199123677:get_position("arya")
+1694199145639:get_position("kevin")
+1694199203108:letters[get_position(name_v) + 2]
+1694199531206:# your code goes below (make sure to edit comment)
+1694199531210:ifelse((positions + k) / 26 = 0, 26, positions + k %% 26 )
+1694199537285:# your code goes below (make sure to edit comment)
+1694199537288:ifelse((positions + k) / 26 == 0, 26, positions + k %% 26 )
+1694199620939:27 %% 26
+1694199660368:ifelse((positions + k=2) / 26 == 0, 26, positions + 2 %% 26 )
+1694199688618:# your code goes below (make sure to edit comment)
+1694199688621:letters[get_position(name_v) + 2]
+1694200227133:# edit the code below (make sure to edit comment)
+1694200227137:cipher <- function(name, k) {
+1694200227142:name_v <- unlist(strsplit(name, split = ""))
+1694200227145:positions <- (getpositions(name_v) + 2) %% 26
+1694200227147:n = length(positions)
+1694200227150:for (i in i:n) {
+1694200227153:ifelse(positions[i] == 0, 26, positions[i])
+1694200227157:}
+1694200227160:print(positions)
+1694200227167:}
+1694200235699:# check
+1694200235702:cipher("arya", 2)
+1694200245723:# edit the code below (make sure to edit comment)
+1694200245727:cipher <- function(name, k) {
+1694200245732:name_v <- unlist(strsplit(name, split = ""))
+1694200245735:positions <- (getposition(name_v) + 2) %% 26
+1694200245737:n = length(positions)
+1694200245740:for (i in i:n) {
+1694200245743:ifelse(positions[i] == 0, 26, positions[i])
+1694200245746:}
+1694200245749:print(positions)
+1694200245752:}
+1694200248748:# check
+1694200248751:cipher("arya", 2)
+1694200261348:# edit the code below (make sure to edit comment)
+1694200261351:cipher <- function(name, k) {
+1694200261356:name_v <- unlist(strsplit(name, split = ""))
+1694200261358:positions <- (get_position(name_v) + 2) %% 26
+1694200261361:n = length(positions)
+1694200261364:for (i in i:n) {
+1694200261367:ifelse(positions[i] == 0, 26, positions[i])
+1694200261370:}
+1694200261373:print(positions)
+1694200261376:}
+1694200262493:# check
+1694200262496:cipher("arya", 2)
+1694200282330:# check
+1694200282335:cipher("arya", 2)
+1694200299484:# check
+1694200299487:cipher("arya", 1)
+1694200304118:# check
+1694200304121:cipher("arya", 1)
+1694200323415:# check
+1694200323418:cipher("arya", 1)
+1694200335573:# check
+1694200335577:cipher("arya", 5)
+1694200337338:# check
+1694200337341:cipher("arya", 5)
+1694200432267:# check
+1694200432270:cipher("arya", 2)
+1694200434808:# check
+1694200434811:cipher("arya", 2)
+1694200504909:# edit the code below (make sure to edit comment)
+1694200504912:cipher <- function(name, k) {
+1694200504917:name_v <- unlist(strsplit(name, split = ""))
+1694200504920:position <- (get_position(name_v) + k) %% 26
+1694200504923:n = length(position)
+1694200504926:for (i in i:n) {
+1694200504929:ifelse(positions[i] == 0, 26, positions[i])
+1694200504931:}
+1694200504934:print(positions)
+1694200504939:}
+1694200508153:# check
+1694200508157:cipher("arya", 2)
+1694200557635:print(position)
+1694200567499:# edit the code below (make sure to edit comment)
+1694200567502:cipher <- function(name, k) {
+1694200567506:name_v <- unlist(strsplit(name, split = ""))
+1694200567514:position <- (get_position(name_v) + k) %% 26
+1694200567521:print(position)
+1694200567529:n = length(position)
+1694200567532:for (i in i:n) {
+1694200567535:ifelse(positions[i] == 0, 26, positions[i])
+1694200567539:}
+1694200567542:print(positions)
+1694200567545:}
+1694200571321:print(position)
+1694200666356:get_position(name_v)
+1694200715775:print(position)
+1694200790691:# check
+1694200790694:cipher("arya", 2)
+1694200801602:# check
+1694200801606:cipher("arya", 1)
+1694200830828:# check
+1694200830833:cipher("arya", 1)
+1694200924379:# edit the code below (make sure to edit comment)
+1694200924382:cipher <- function(name, k) {
+1694200924385:name_v <- unlist(strsplit(name, split = ""))
+1694200924387:position <- get_position(name_v) + k
+1694200924390:print(position)
+1694200924393:for (i in i:n) {
+1694200924395:positions <- positions %% 26
+1694200924398:ifelse(positions[i] == 0, position[i] <- 26, positions[i])
+1694200924400:}
+1694200924403:}
+1694200927399:# check
+1694200927402:cipher("arya", 1)
+1694200941815:# check
+1694200941820:cipher("arya", 2)
+1694200978663:# edit the code below (make sure to edit comment)
+1694200978666:cipher <- function(name, k) {
+1694200978669:name_v <- unlist(strsplit(name, split = ""))
+1694200978672:position <- get_position(name_v) + k
+1694200978674:print(position)
+1694200978677:for (i in i:n) {
+1694200978680:positions[i] <- positions[i] %% 26
+1694200978685:ifelse(positions[i] == 0, position[i] <- 26, positions[i])
+1694200978690:}
+1694200978693:}
+1694200981088:# check
+1694200981090:cipher("arya", 2)
+1694201009916:# edit the code below (make sure to edit comment)
+1694201009919:cipher <- function(name, k) {
+1694201009922:name_v <- unlist(strsplit(name, split = ""))
+1694201009925:position <- get_position(name_v) + k
+1694201009928:print(position)
+1694201009930:for (i in i:n) {
+1694201009933:positions[i] <- positions[i] %% 26
+1694201009936:ifelse(positions[i] == 0, position[i] <- 26, positions[i] %% 26)
+1694201009938:}
+1694201009941:}
+1694201012587:# check
+1694201012590:cipher("arya", 2)
+1694201048513:# edit the code below (make sure to edit comment)
+1694201048516:cipher <- function(name, k) {
+1694201048519:name_v <- unlist(strsplit(name, split = ""))
+1694201048522:position <- get_position(name_v) + k
+1694201048525:print(position)
+1694201048528:for (i in i:n) {
+1694201048530:ifelse(positions[i] %% 26 == 0, position[i] <- 26, positions[i] %% 26)
+1694201048533:}
+1694201048535:}
+1694201049422:# check
+1694201049425:cipher("arya", 2)
+1694201103559:get_position("arya")
+1694201162565:# edit the code below (make sure to edit comment)
+1694201162568:cipher <- function(name, k) {
+1694201162570:name_v <- unlist(strsplit(name, split = ""))
+1694201162573:position <- get_position(name_v) + k
+1694201162575:print(position)
+1694201162578:for (i in i:n) {
+1694201162580:ifelse(positions[i] %% 26 == 0, position[i] <- 26,  positions[i] <- positions[i] %% 26)
+1694201162583:}
+1694201162586:}
+1694201164933:# check
+1694201164936:cipher("arya", 2)
+1694201195784:# edit the code below (make sure to edit comment)
+1694201195787:cipher <- function(name, k) {
+1694201195790:name_v <- unlist(strsplit(name, split = ""))
+1694201195793:position <- get_position(name_v) + k
+1694201195795:for (i in i:n) {
+1694201195798:ifelse(positions[i] %% 26 == 0, position[i] <- 26,  positions[i] <- positions[i] %% 26)
+1694201195801:}
+1694201195804:}
+1694201197419:# check
+1694201197422:cipher("arya", 2)
+1694201219963:# edit the code below (make sure to edit comment)
+1694201219966:cipher <- function(name, k) {
+1694201219969:name_v <- unlist(strsplit(name, split = ""))
+1694201219972:position <- get_position(name_v) + k
+1694201219976:for (i in i:n) {
+1694201219980:ifelse(positions[i] %% 26 == 0, position[i] <- 26,  positions[i] <- positions[i] %% 26)
+1694201219984:}
+1694201219988:print(positions)
+1694201219992:}
+1694201222664:# check
+1694201222667:cipher("arya", 2)
+1694201254445:# edit the code below (make sure to edit comment)
+1694201254448:cipher <- function(name, k) {
+1694201254451:name_v <- unlist(strsplit(name, split = ""))
+1694201254454:position <- get_position(name_v) + k
+1694201254458:n = length(name_v)
+1694201254462:for (i in i:n) {
+1694201254465:ifelse(positions[i] %% 26 == 0, position[i] <- 26,  positions[i] <- positions[i] %% 26)
+1694201254468:}
+1694201254472:print(positions)
+1694201254475:}
+1694201255584:# check
+1694201255587:cipher("arya", 2)
+1694201270984:# edit the code below (make sure to edit comment)
+1694201270988:cipher <- function(name, k) {
+1694201270993:name_v <- unlist(strsplit(name, split = ""))
+1694201270998:position <- get_position(name_v) + k
+1694201271003:n = length(position)
+1694201271007:for (i in i:n) {
+1694201271010:ifelse(positions[i] %% 26 == 0, position[i] <- 26,  positions[i] <- positions[i] %% 26)
+1694201271014:}
+1694201271017:print(positions)
+1694201271021:}
+1694201272451:# check
+1694201272455:cipher("arya", 2)
+1694201460523:# edit the code below (make sure to edit comment)
+1694201460527:cipher <- function(name, k) {
+1694201460529:name_v <- unlist(strsplit(name, split = ""))
+1694201460532:position <- get_position(name_v) + k
+1694201460535:n = length(position)
+1694201460539:new = vector(length = n)
+1694201460543:for (i in i:n) {
+1694201460548:ifelse(positions[i] %% 26 == 0, new[i] <- 26,  new[i] <- positions[i] %% 26)
+1694201460551:}
+1694201460554:print(new[])
+1694201460557:}
+1694201461373:# check
+1694201461376:cipher("arya", 2)
+1694201597780:# your code goes below (make sure to edit comment)
+1694201597785:print(letters)
+1694201598783:class(letters)
+1694201599922:print(length(letters))
+1694201603715:test <- unlist(strsplit("test", split = ""))
+1694201608831:letters %in% test
+1694201616143:# your code goes below (make sure to edit comment)
+1694201616147:lettersfalse <- letters %in% test
+1694201617324:table(lettersfalse)
+1694201626275:# Define name as a vector
+1694201626278:name_v <- unlist(strsplit("arya", split = ""))
+1694201627408:# your code goes below (make sure to edit comment)
+1694201627411:which(letters %in% name_v)
+1694201632422:# your code goes below (make sure to edit comment)
+1694201632425:n = length(name_v)
+1694201633430:positions <- vector(length = n)
+1694201633963:for(i in 1:n) {
+1694201633966:positions[i] <- which(letters %in% name_v[i])
+1694201633969:}
+1694201634462:print(positions)
+1694201636167:letters[positions]
+1694201640247:# your code goes below (make sure to edit comment)
+1694201640250:newpositions <- positions[] + 1
+1694201642526:letters[newpositions]
+1694201652486:# your code goes below (make sure to edit comment)
+1694201652490:get_position <- function(x) {
+1694201652494:names <- unlist(strsplit(x, split = ""))
+1694201652497:n = length(names)
+1694201652499:positions <- vector(length = n)
+1694201652502:for(i in 1:n) {
+1694201652504:positions[i] <- which(letters %in% names[i])
+1694201652507:}
+1694201652509:print(positions)
+1694201652513:}
+1694201653201:get_position("arya")
+1694201712456:# edit the code below (make sure to edit comment)
+1694201712460:cipher <- function(name, k) {
+1694201712462:name_v <- unlist(strsplit(name, split = ""))
+1694201712465:position1 <- get_position(name_v) + k
+1694201712468:print(position1)
+1694201712471:n = length(position)
+1694201712474:new = vector(length = n)
+1694201712477:for (i in i:n) {
+1694201712482:ifelse(positions[i] %% 26 == 0, new[i] <- 26,  new[i] <- positions[i] %% 26)
+1694201712486:}
+1694201712491:print(new[])
+1694201712495:}
+1694201715961:# check
+1694201715964:cipher("arya", 2)
+1694201762742:# edit the code below (make sure to edit comment)
+1694201762745:cipher <- function(name, k) {
+1694201762749:name_v <- unlist(strsplit(name, split = ""))
+1694201762754:position1 <- get_position(name_v) + k
+1694201762758:print(position1)
+1694201762763:n = length(position1)
+1694201762766:new = vector(length = n)
+1694201762770:for (i in i:n) {
+1694201762773:ifelse(position1[i] %% 26 == 0, new[i] <- 26,  new[i] <- position1[i] %% 26)
+1694201762776:}
+1694201762779:print(new[])
+1694201762782:}
+1694201764078:# check
+1694201764081:cipher("arya", 2)
+1694201890322:# check
+1694201890325:cipher("arya", 1)
+1694202079175:# check
+1694202079179:cipher("arya", 2)
+1694202081217:# test with your name!
+1694202081220:cipher("kevin", 10)
+1694202083674:# test with your name!
+1694202083677:cipher("kevin", 10)
+1694202090678:# check
+1694202090681:cipher("arya", 2)
+1694202094244:# test with your name!
+1694202094247:cipher("kevin", 10)
+1694202100267:# check
+1694202100270:cipher("arya", 2)
+1694202107578:# test with your name!
+1694202107582:cipher("kevin", 10)
+1694202175907:# check
+1694202175911:cipher("arya", 2)
+1694202178544:# test with your name!
+1694202178547:cipher("kevin", 10)
+1694202301474:# check
+1694202301477:cipher("arya", 2)
+1694202330976:View(cipher)
+1694202365162:# edit the code below (make sure to edit comment)
+1694202365165:cipher <- function(name, k) {
+1694202365168:name_v <- unlist(strsplit(name, split = ""))
+1694202365170:position1 <- get_position(name_v) + k
+1694202365173:n = length(name_v)
+1694202365175:ciphervector = vector(length = n)
+1694202365178:for (i in 1:n) {
+1694202365181:ifelse(position1[i] %% 26 == 0, ciphervector[i] <- 26,  ciphervector[i] <- position1[i] %% 26)
+1694202365184:}
+1694202365188:print(ciphervector[])
+1694202365192:}
+1694202367924:# check
+1694202367927:cipher("arya", 2)
+1694202376325:# test with your name!
+1694202376328:cipher("kevin", 10)
+1694202398057:# check
+1694202398060:cipher("arya", 2)
+1694202495788:print(ciphervector("oldp", i))
+1694202507259:print(cipher("oldp", i))
+1694202543049:print(letters(cipher("oldp", i)))
+1694202564945:print(letters[cipher("oldp", i)])
+1694202603766:for (i in 1:n) {
+1694202603769:print(letters[cipher("oldp", i)])
+1694202603772:}
+1694202624364:# your code goes below (make sure to edit comment)
+1694202624367:for (i in 1:25) {
+1694202624369:print(letters[cipher("oldp", i)])
+1694202624372:}
+1694202690071:# your code goes below (make sure to edit comment)
+1694202690074:cipher("oldp",1)
+1694202706204:# your code goes below (make sure to edit comment)
+1694202706207:letters[cipher("oldp",1)]
+1694202709453:# your code goes below (make sure to edit comment)
+1694202709457:letters[cipher("oldp",2)]
+1694202713230:# your code goes below (make sure to edit comment)
+1694202713233:letters[cipher("oldp",3)]
+1694202716612:# your code goes below (make sure to edit comment)
+1694202716615:letters[cipher("oldp",4)]
+1694202721253:# your code goes below (make sure to edit comment)
+1694202721256:letters[cipher("oldp",5)]
+1694202778569:# your code goes below (make sure to edit comment)
+1694202778572:for (i in 1 :25) {
+1694202778575:letters[cipher("oldp",5)]
+1694202778578:}
+1694202789881:letters[cipher("oldp",i)]
+1694202795958:# your code goes below (make sure to edit comment)
+1694202795963:for (i in 1 :25) {
+1694202795968:letters[cipher("oldp",i)]
+1694202795972:}
+1694202800781:# your code goes below (make sure to edit comment)
+1694202800784:for (i in 1 :25) {
+1694202800786:letters[cipher("oldp",i)]
+1694202800789:}
+1694202806815:letters[cipher("oldp",i)]
+1694202813798:# your code goes below (make sure to edit comment)
+1694202813801:for (i in 1 :25) {
+1694202813804:letters[cipher("oldp",i)]
+1694202813807:}
+1694202910574:# edit the code below (make sure to edit comment)
+1694202910577:cipher <- function(name, k) {
+1694202910580:name_v <- unlist(strsplit(name, split = ""))
+1694202910583:position1 <- get_position(name_v) + k
+1694202910585:n = length(name_v)
+1694202910589:ciphervector = vector(length = n)
+1694202910592:for (i in 1:n) {
+1694202910594:ifelse(position1[i] %% 26 == 0, ciphervector[i] <- 26,  ciphervector[i] <- position1[i] %% 26)
+1694202910597:}
+1694202910599:print(letters[ciphervector[]])
+1694202910602:}
+1694202911945:# check
+1694202911948:cipher("arya", 2)
+1694202914260:# test with your name!
+1694202914263:cipher("kevin", 10)
+1694202928459:# your code goes below (make sure to edit comment)
+1694202928462:for (i in 1 :25) {
+1694202928466:cipher("oldp",i)
+1694202928469:}
+1694203015231:# check
+1694203015234:cipher("arya", 2)
+1694203023102:# edit the code below (make sure to edit comment)
+1694203023106:cipher <- function(name, k) {
+1694203023110:name_v <- unlist(strsplit(name, split = ""))
+1694203023112:position1 <- get_position(name_v) + k
+1694203023115:n = length(name_v)
+1694203023118:ciphervector = vector(length = n)
+1694203023121:for (i in 1:n) {
+1694203023124:ifelse(position1[i] %% 26 == 0, ciphervector[i] <- 26,  ciphervector[i] <- position1[i] %% 26)
+1694203023128:}
+1694203023132:print(ciphervector[])
+1694203023136:print(letters[ciphervector[]])
+1694203023139:}
+1694203024757:# check
+1694203024761:cipher("arya", 2)
+1694203029816:# test with your name!
+1694203029819:cipher("kevin", 10)
+1694203467899:# your code goes below (make sure to edit comment)
+1694203467902:position1 <- get_position(name_v) + k
+1694203481538:# your code goes below (make sure to edit comment)
+1694203481541:k = 2
+1694203481737:position1 <- get_position(name_v) + k
+1694203482042:n = length(name_v)
+1694203482488:ciphervector = vector(length = n)
+1694809547505:# Save dataset as a dataframe
+1694809547550:ChickWeight <- as.data.frame(ChickWeight)
+1694809549559:# Visualize the first ten rows of the dataset
+1694809549565:head(ChickWeight,10)
+1694809594266:# your code goes below (make sure to edit comment)
+1694809594272:length(ChickWeight)
+1694809635268:# your code goes below (make sure to edit comment)
+1694809635272:table(ChickWeight)
+1694809798388:# your code goes below (make sure to edit comment)
+1694809798392:length(ChickWeight$Chick)
+1694809818015:length(ChickWeight$Time)
+1694809820347:length(ChickWeight$Time)
+1694809832848:Table(ChickWeight$Time)
+1694809835308:Table(ChickWeight$Time)
+1694809840572:table(ChickWeight$Time)
+1694809849493:table(ChickWeight$Time)
+1694809866280:table(ChickWeight$Diet)
+1694809877927:# your code goes below (make sure to edit comment)
+1694809877931:length(ChickWeight$Chick)
+1694809917142:table(ChickWeight$Time)
+1694809988751:table(ChickWeight$Diet)
+1694810049742:# Load package
+1694810049746:library(ggplot2)
+1694810085089:# make the plot
+1694810085092:p1 <- ggplot(anscombe, aes(x=x1, y=y1)) + geom_point()
+1694810090262:# visualize the plot
+1694810090265:ggarrange(p1, p2, p3, p4, labels = c("A", "B", "C", "D"), ncol = 2, nrow = 2)
+1694810255210:View(ChickWeight)
+1694810296727:ggplot(data = ChickWeight, aes(x=Time, y=weight)) + geom_point()
+1694810547916:ggplot(data = ChickWeight, aes(x=Time, y=weight)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") ++ ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")
+1694810560798:ggplot(data = ChickWeight, aes(x=Time, y=weight)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")
+1694810686032:# your code goes below (make sure to edit comment)
+1694810686036:ggplot(data = ChickWeight, aes(x=Time, y=weight)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(group = Chick)) + theme(legend.position = "none")
+1694810735336:# your code goes below (make sure to edit comment)
+1694810735340:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(group = Chick)) + theme(legend.position = "none")
+1694810748849:# your code goes below (make sure to edit comment)
+1694810748853:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(group = Chick)) + theme(legend.position = "none")
+1694811278060:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point(aes(color = white)) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(group = Chick)) + theme(legend.position = "none")
+1694811443567:ggplot(ChickWeight) + geom_point(aes(x=Time, y=weight, color = white)) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(x=Time, y=weight, color = Diet)) + theme(legend.position = "none")
+1694811454619:ggplot(ChickWeight) + geom_point(aes(x=Time, y=weight, color = White)) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(x=Time, y=weight, color = Diet)) + theme(legend.position = "none")
+1694811461632:ggplot(ChickWeight) + geom_point(aes(x=Time, y=weight)) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(x=Time, y=weight, color = Diet)) + theme(legend.position = "none")
+1694811477570:ggplot(ChickWeight) +
+1694811477574:geom_line(aes(x=Time, y=weight, color=Chick)) +
+1694811477578:geom_point(aes(x=Time, y=weight))
+1694811502547:ggplot(ChickWeight) +
+1694811502551:geom_line(aes(x=Time, y=weight, color=Chick)) +
+1694811502557:geom_point(aes(x=Time, y=weight)) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+1694811557664:ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color="white")) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+1694811578391:ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color="red")) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+1694811580590:ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color="")) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+1694811585782:ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color="white")) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+1694811605247:ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+1694811836287:p1 <- ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+1694811927308:p1 + facet_wrap(~Diet)
+1694811971613:ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Diet)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+1694811977862:ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+1694812152435:# your code goes below (make sure to edit comment)
+1694812152450:p1 + geom_smooth(method = "lm", se=F)
+1694812184756:# your code goes below (make sure to edit comment)
+1694812184771:ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none") + geom_smooth(method=“lm”, se=F)
+1694812210398:# your code goes below (make sure to edit comment)
+1694812210414:ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none") + geom_smooth(method="lm", se=F)
+1694812310718:# your code goes below (make sure to edit comment)
+1694812310734:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(group = Chick)) + theme(legend.position = "none") + geom_smooth(method="lm")
+1694812342542:# your code goes below (make sure to edit comment)
+1694812342557:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(group = Chick)) + theme(legend.position = "none") + geom_smooth(method="lm", se=F)
+1694812383036:# your code goes below (make sure to edit comment)
+1694812383051:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") +  + theme(legend.position = "none") + geom_smooth(method="lm", se=F)
+1694812386513:# your code goes below (make sure to edit comment)
+1694812386528:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + theme(legend.position = "none") + geom_smooth(method="lm", se=F)
+1694812411917:# your code goes below (make sure to edit comment)
+1694812411931:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F)
+1694812962957:# your code goes below (make sure to edit comment)
+1694812962971:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Chick)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(aes(group = Chick)) + theme(legend.position = "none")
+1694813369677:# your code goes below (make sure to edit comment)
+1694813369692:ggplot(data = ChickWeight, aes(x=Time, y=weight, Color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F)
+1694813376855:# your code goes below (make sure to edit comment)
+1694813376870:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F)
+1694813411692:# your code goes below (make sure to edit comment)
+1694813411706:ggplot(data = ChickWeight, aes(x=Time, y=weight,)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F, color = Diet)
+1694813415365:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F)
+1694813436963:# your code goes below (make sure to edit comment)
+1694813436977:ggplot(data = ChickWeight, aes(x=Time, y=weight)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F, color = Diet)
+1694813441005:color = Die
+1694813443492:# your code goes below (make sure to edit comment)
+1694813443507:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F, color = Diet)
+1694813447669:# your code goes below (make sure to edit comment)
+1694813447688:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F)
+1694814469041:ggplot(data = ChickWeight, aes(x = Diet, y = Weight) + geom_bar(stat = "summary", fun = "mean")
+1694814476478:ggplot(data = ChickWeight, aes(x = Diet, y = Weight) + geom_bar(stat = "summary", fun = "mean"))
+1694814507363:ggplot(ChickWeight, aes(x = Diet, y = weight)) +
+1694814507382:geom_bar(stat = "summary", fun = "mean")
+1694814641477:ggplot(ChickWeight, aes(x = Diet, y = weight)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Weight in grams", breaks = seq(0, 300, by =25))
+1694815125556:ggplot(ChickWeight$Time == 22, aes(x = Diet, y = weight)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694815134830:ggplot(ChickWeight$Time, aes(x = Diet, y = weight)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694815139441:ggplot(ChickWeight, aes(x = Diet, y = weight)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694815250115:table(ChickWeight$Diet)
+1694815252210:table(ChickWeight$Time)
+1694815324373:# your code goes below (make sure to edit comment)
+1694815324387:ggplot(ChickWeight, aes(x = Diet, y = weight)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se)
+1694815445648:# your code goes below (make sure to edit comment)
+1694815445662:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5)
+1694815487399:# your code goes below (make sure to edit comment)
+1694815487414:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_color_brewer()
+1694815502668:# your code goes below (make sure to edit comment)
+1694815502683:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+1694815580468:ggplot(ChickWeight, aes(y = weight, x = Diet)) +
+1694815580482:geom_bar(stat = "summary", fun = "mean") +
+1694815580497:geom_point(aes(color=Diet)) + scale_color_brewer()
+1694815667792:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_point(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", size = 3, color ="red") + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+1694815689876:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_point(stat = "summary", fun = "mean", size = 3, color ="red") + scale_y_continuous(name = "Average weight in grams") + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+1694815716905:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet))  + scale_y_continuous(name = "Average weight in grams") + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer() + geom_point(stat = "summary", fun = "mean", size = 3, color ="red")
+1694815759634:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet))  + scale_y_continuous(name = "Average weight in grams") + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + geom_point(stat = "summary", fun = "mean", size = 10, color ="red")
+1694815763616:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet))  + scale_y_continuous(name = "Average weight in grams") + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + geom_point(stat = "summary", fun = "mean", size = 5, color ="red")
+1694816258083:## Plotting distirbutions
+1694816258085:ggplot(data = Orange, aes(x = age, y = circumference)) + geom_boxplot()
+1694816263307:# Make age a factor with as.factor()
+1694816263309:Orange$age<-as.factor(Orange$age)
+1694816264730:ggplot(Orange, aes(x=age, y=circumference)) + geom_boxplot()
+1694816275914:# Boxplots are useful but they hide the true values
+1694816275916:# Overlay points + jitter with geom_jitter()
+1694816275919:# adds random noise so they don't overlap
+1694816275921:# Add transparency via alpha
+1694816275923:ggplot(Orange, aes(x=age, y=circumference)) + geom_boxplot() + geom_jitter(alpha=.5)
+1694816278426:# change color?
+1694816278428:ggplot(Orange, aes(x=age, y=circumference)) + geom_boxplot() +
+1694816278431:geom_jitter(alpha=.5, aes(color=Tree))
+1694816283270:# Let's collapse across Three and age (by leaving it out)
+1694816283273:# Try to view the distribution of tree heights using geom_histogram()
+1694816283275:# Just leave off the y= mapping entirely (what does a histogram have on the y-axis?)
+1694816283278:ggplot(Orange, aes(x=circumference)) + geom_histogram()
+1694816293787:# Try adding fill=age inside of the aes()
+1694816293789:# Why not color=age (try it)
+1694816293791:ggplot(Orange, aes(x=circumference, fill=age)) + geom_histogram(bins=60)
+1694816294788:# Bring the legend inside your plot!
+1694816294791:ggplot(Orange, aes(x=circumference, fill=age)) + geom_histogram(bins=60) +
+1694816294794:theme(legend.position=c(.3,.8), legend.direction = "horizontal")
+1694816296062:# Density plots are smoothed versions of histograms
+1694816296065:ggplot(Orange, aes(x=circumference, fill=age)) +
+1694816296067:geom_density(alpha=0.7, bw=5) +
+1694816296069:theme(legend.position=c(.3,.8), legend.direction = "horizontal")
+1694816297603:# add a rug plot to it
+1694816297605:ggplot(Orange, aes(x=circumference, fill=age)) +
+1694816297607:geom_density(alpha=0.7, bw=5) +  geom_rug() +
+1694816297609:theme(legend.position=c(.3,.8), legend.direction = "horizontal")
+1694816299769:# combine boxplot and density plot
+1694816299771:ggplot(Orange, aes(x=age, y=circumference, fill=age)) +
+1694816299773:geom_violin(trim=F, bw=10)
+1694816300603:# overlay boxplots
+1694816300606:ggplot(Orange, aes(x=age, y=circumference, fill=age)) +
+1694816300608:geom_violin(trim=F, bw=10) + geom_boxplot(width=.1)
+1694816302049:# Take a minute and poke around in this dataset
+1694816302051:data(msleep)
+1694816303520:head(msleep)
+1694816304279:str(msleep)
+1694816304934:# make a scatter plot
+1694816304936:p <- ggplot(msleep, aes(sleep_total, sleep_rem)) + geom_point()
+1694816305656:p
+1694816306648:# let's add geom_smooth()
+1694816306650:p + geom_smooth()
+1694816307526:# linear trend
+1694816307529:p + geom_smooth(method='lm')
+1694816308434:ggplot(msleep, aes(x=sleep_total, y=sleep_rem)) + geom_point(aes(color=vore, size=bodywt))
+1694816309260:# Count of each dietary classification in the dataset
+1694816309262:ggplot(msleep, aes(vore))+geom_bar(stat="count")
+1694816309829:# Let's omit the NAs from the vore variable
+1694816309831:# is.na(x) tests if each element of x is an NA, TRUE if so, FALSE otherwise
+1694816309833:# We negate this using the not operator ! (flips T to F and F to T)
+1694816309835:msleep1<-msleep[!is.na(msleep$vore),] #delete all rows with NA for vore
+1694816310376:ggplot(msleep1, aes(vore))+geom_bar(stat="count")
+1694816311160:# exercise
+1694816311162:ggplot(msleep1, aes(x = vore, fill = vore))+geom_bar()+
+1694816311165:theme(legend.position = "none")+
+1694816311167:ggtitle("Prettier Plot!")+xlab("Dietary Habit")+ylab("Count")
+1694816315000:# Let's create a new categorical variable called size
+1694816315002:# If bodywt is less than the median, then "Small", else "Large"
+1694816315005:msleep1$size <- ifelse(msleep1$bodywt<median(msleep1$bodywt), "Small", "Large")
+1694816330226:str(msleep1)
+1694816333698:# let's plot bar chart again
+1694816333700:# We can add this new variable to the previous plot
+1694816333702:# vore and size are both categorical: geom_bar() knows what to do!
+1694816333704:ggplot(msleep1, aes(x = vore, fill=size))+geom_bar()
+1694816334862:# change the order
+1694816334864:msleep1$size <- factor(msleep1$size,levels = c("Small","Large"))
+1694816336206:ggplot(msleep1, aes(x = vore, fill=size))+geom_bar()
+1694816337049:# instead of stacked, you can stagger the bars with position="dodge"
+1694816337051:ggplot(msleep1, aes(x = vore, fill=size)) +
+1694816337053:geom_bar(position="dodge")
+1694816337705:# Proportions within each level of x-axis variable
+1694816337707:# Here, marginal distribution of size given each vore
+1694816337709:ggplot(msleep1, aes(x = vore, fill=size)) +
+1694816337712:geom_bar(position="fill")
+1694816338186:# Swap the position of the categorical variables
+1694816338188:ggplot(msleep1, aes(x = size, fill=vore)) +
+1694816338190:geom_bar(position="fill")
+1694816339052:ggplot(msleep1, aes(x = vore))+
+1694816339055:geom_bar(aes(y=sleep_total), stat="summary", fun=mean)
+1694816339664:ggplot(msleep1, aes(x = vore, y = sleep_total))+
+1694816339665:geom_bar(stat="summary",fun=mean)+
+1694816339667:geom_errorbar(stat="summary", fun.data=mean_se, width=0.4)
+1694817124918:cw_index <-  filter(ChickWeight,  (Time == 21)) %>%
+1694817124929:group_by(Diet, Time)
+1694817134241:cw_index <-  filter(ChickWeight,  (Time == 21)),
+1694817139280:cw_index <-  filter(ChickWeight,  (Time == 21))
+1694817156059:cw_index <-  filter(ChickWeight,  (Time == 21))
+1694817219636:CW2 <- ChickWeight[ChickWeight$Time == 21]
+1694817365851:CW <- filter(ChickWeight, Time == 0)
+1694817368075:CW <- filter(ChickWeight, Time == 0)
+1694817386510:ChickWeight
+1694817387223:CW <- filter(ChickWeight, Time == 21)
+1694817401166:CW <- filter(ChickWeight, ChickWeight$Time == 21)
+1694817460544:ggplot(CW, aes(x = Diet, y = weight)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694817524886:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694817530662:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694817582519:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694817602142:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694817640050:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694817878972:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21 && True)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694817884740:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21 && TRUE)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694817889651:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694817937022:# your code goes below (make sure to edit comment)
+1694817937032:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Time == 21)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+1694817950708:View(ChickWeight)
+1694818190298:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= (Time==21)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694818197217:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= (Time==21)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694818209868:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694818213393:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694818230198:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)
+1694818233015:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21 + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)
+1694818236427:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21 + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694818248059:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time==21)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694818261504:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694818280301:ggplot(ChickWeight, aes(x = Diet, y = weight, fill= Time ==21)) + geom_bar(stat="identity", position=position_dodge()) + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694818311338:# your code goes below (make sure to edit comment)
+1694818311350:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+1694818338775:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694818352092:Time
+1694818358150:Diet
+1694818360605:Diet
+1694818371674:View(ChickWeight)
+1694818382304:# Save dataset as a dataframe
+1694818382316:ChickWeight <- as.data.frame(ChickWeight)
+1694818390812:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") +
+1694818394036:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") +
+1694818399851:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694818409567:# your code goes below (make sure to edit comment)
+1694818409577:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days")  + geom_smooth(method="lm", se=F)
+1694818414860:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694818418934:# your code goes below (make sure to edit comment)
+1694818418945:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+1694818431164:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Time)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694818439030:# your code goes below (make sure to edit comment)
+1694818439047:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Time)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+1694818442442:# your code goes below (make sure to edit comment)
+1694818442452:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Time)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+1694818465668:# your code goes below (make sure to edit comment)
+1694818465678:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+1694818484489:# your code goes below (make sure to edit comment)
+1694818484499:ggplot(ChickWeight, aes(x = Diet[Time == 21], y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+1694818490583:# your code goes below (make sure to edit comment)
+1694818490593:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+1694818519811:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694818612500:# Visualize the first ten rows of the dataset
+1694818612511:head(ChickWeight,10)
+1694818764516:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point() + ylab("Weight (g)") + xlab("Time (days)") + ggtitle(" Average Weight of Chicks on Different Diets over the Course of a Few Days for Different Diets") + geom_line(aes(group = Chick))
+1694818835576:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point(stat="summary", fun=mean) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle(" Average Weight of Chicks on Different Diets over the Course of a Few Days for Different Diets") + geom_line(aes(group = Chick))
+1694818917771:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point(shape = 4) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle(" Average Weight of Chicks on Different Diets over the Course of a Few Days for Different Diets") + geom_line(aes(group = Chick))
+1694818974531:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point(shape = 4) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle(" Average Weight of Chicks on Different Diets over the Course of a Few Days for Different Diets") + geom_line(stat="summary", fun=mean)
+1694819015654:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point(stat="summary", fun=mean, shape = 4) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle(" Average Weight of Chicks on Different Diets over the Course of a Few Days for Different Diets") + geom_line(stat="summary", fun=mean)
+1694819137674:ggplot(data = ChickWeight, aes(x=Time, y=weight, color = Diet)) + geom_point(stat="summary", fun=mean, shape = 4) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle(" Average Weight of Chicks on Different Diets over the Course of a Few Days") + geom_line(stat="summary", fun=mean)
+1694819441469:filter(ChickWeight, Time == 21)
+1694819455854:filter(ChickWeight, ChickWeight$Time == 21)
+1694819588754:ChickWeight_bg <- ChickWeight %>% filter((Time == 21)
+1694819599479:ggplot(ChickWeight_bg, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694819604431:ChickWeight_bg <- ChickWeight %>% filter((Time == 21)
+1694819619406:ChickWeight_bg <- ChickWeight %>% filter((Time == 21))
+1694819624022:ggplot(ChickWeight_bg, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694819627559:ChickWeight_bg <- ChickWeight %>% filter((Time == 21))
+1694819705983:ChickWeight_bg <-filter(ChickenWeight(Time == 21))
+1694819716262:ChickWeight_bg <-filter(ChickenWeight, (Time == 21))
+1694819721603:View(ChickWeight)
+1694819732343:```{r}
+1694819733656:ggplot(ChickWeight_bg, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694819738040:ggplot(ChickWeight, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694819920659:# Save dataset as a dataframe
+1694819920670:ChickWeight <- as.data.frame(ChickWeight)
+1694819971647:filter(ChickenWeight, Time == 21)
+1694820012350:ChickWeight <- as.data.frame(ChickWeight)
+1694820013174:filter(ChickenWeight, Time == 21)
+1694820027652:ChickWeight <- as.data.frame(ChickWeight)filter?
+1694820109074:newCW <- filter(ChickenWeight, Time == 21)
+1694820337658:filtered_data <- ChickenWeight[ChickenWeight$Time == 21, ]
+1694820357387:ChickenWeight <- ChickenWeight
+1694820366110:ChickenWeight <- ChickenWeight()
+1694820381485:# Save dataset as a dataframe
+1694820381495:ChickWeight <- as.data.frame(ChickWeight)
+1694820401456:filtered_data <- ChickWeight[ChickWeight$Time == 21, ]
+1694820410616:ggplot(filtered_data, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25))
+1694820463576:# your code goes below (make sure to edit comment)
+1694820463587:ggplot(filtered_data, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer()
+1694820493795:ggplot(filtered_data, aes(x = Diet, y = weight, fill = Diet))  + scale_y_continuous(name = "Average weight in grams") + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + geom_point(stat = "summary", fun = "mean", size = 5, color ="red")
+1694820524780:ggplot(filtered_data, aes(x = Diet, y = weight, fill = Diet))  + scale_y_continuous(name = "Average weight in grams") + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + geom_point(stat = "summary", fun = "mean", size = 5, color ="red") +theme(legend.position = "none")
+1694821243003:ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+1694821370444:ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, shape = 21, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+1694821381688:ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+1694821412618:# your code goes below (make sure to edit comment)
+1694821412628:p1 <- ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, shape = 21, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+1694821418726:# your code goes below (make sure to edit comment)
+1694821418737:p1 <- ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, shape = 21, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+1694821427137:# your code goes below (make sure to edit comment)
+1694821427148:p1 <- ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+1694821428472:p1 + facet_wrap(~Diet)
+1694821434327:ggplot(ChickWeight) + geom_line(aes(x=Time, y=weight, color=Chick)) + geom_point(aes(x=Time, y=weight, color='white')) + ylab("Weight (g)") + xlab("Time (days)") + ggtitle("Weight of Chicks on Different Diets over the Course of a Few Days") + theme(legend.position = "none")
+1694821686240:# your code goes below (make sure to edit comment)
+1694821686251:ggplot(filtered_data, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + scale_fill_brewer() + ggtitle(" Average Weight of Chicks on Different Diets at Day 21")
+1694821690288:ggplot(filtered_data, aes(x = Diet, y = weight, fill = Diet)) + geom_bar(stat = "summary", fun = "mean") + scale_y_continuous(name = "Average weight in grams", breaks = seq(0, 300, by =25)) + ggtitle(" Average Weight of Chicks on Different Diets at Day 21")
+1694821709147:ggplot(filtered_data, aes(x = Diet, y = weight, fill = Diet))  + scale_y_continuous(name = "Average weight in grams") + geom_errorbar(stat="summary", fun.data=mean_se, width = 0.5) + geom_point(stat = "summary", fun = "mean", size = 5, color ="red") +theme(legend.position = "none") + ggtitle(" Average Weight of Chicks on Different Diets at Day 21 with Error")
+1695129917582:data(diamonds)
+1695129919468:library(ggplot2)
+1695129925947:diamonds<-as.data.frame(diamonds)
+1695129931275:View(diamonds)
+1695130016939:nrow(diamonds)
+1695130023215:ncol(diamonds)
+1695130089843:ggplot(data=diamonds, aes(x=price)) + geom_histogram()
+1695130125627:hist(diamonds$price)
+1695130161362:ggplot(data=dataset, aes(x=variae)) + geom_bar()
+1695130181619:ggplot(data=diamonds, aes(x=cut)) + geom_bar()
+1695130213726:barplot(table(diamonds$cut))
+1695130255713:table(barplot$cut)
+1695130263793:table(diamonds$cut)
+1695130336948:ggplot(data=diamonds, aes(x=carat, y=price, color=clarity))+
+1695130336951:geom_point()+ geom_smooth(method="lm")
+1695130438316:ggplot(data=diamonds, aes(x=price, y=depth))+
+1695130438319:geom_point()+ geom_smooth(method="lm")
+1695130477846:ggplot(data=diamonds, aes(x=price, y=depth, color = clarity))+
+1695130477849:geom_point()+ geom_smooth(method="lm")
+1695130564156:ggplot(data=diamonds, aes(x=price)) + geom_histogram() + facet_wrap(~clarity)
+1695130602548:ggplot(data=diamonds, aes(x=price)) + geom_histogram() + facet_wrap(~clarity, sacles ="free_y")
+1695130617610:ggplot(data=diamonds, aes(x=price)) + geom_histogram() + facet_wrap(~clarity, scales ="free_y")
+1695130747866:diamonds$volume <- diamonds$x * diamonds$y * diamonds$z
+1695130755184:View(diamonds)
+1695130869579:ggplot(data=diamonds, aes(x=carat, y=volume)) + geom_point() + geom_smooth(method = "lm")
+1695130914094:bases %in% c("A", "T")
+1695130917909:bases <- c("A", "T", "C", "A", "G", "A")
+1695130918535:bases %in% c("A", "T")
+1695130953695:sum(c(TRUE, FALSE, TRUE))
+1695130960385:mean(c(TRUE, FALSE, TRUE))
+1695130962972:sum(bases == "A")
+1695130981276:mean(bases=="A")
+1695130983548:sum(bases %in% c("A", "T"))
+1695130989458:mean(bases %in% c("A", "T"))
+1695131133182:sum(diamonds$cut %in% c("Ideal","Premium") & diamonds$color %in% c("D", "E") & diamonds$clarity %in% c("IF", VVS1))
+1695131138777:sum(diamonds$cut %in% c("Ideal","Premium") & diamonds$color %in% c("D", "E") & diamonds$clarity %in% c("IF", "VVS1"))
+1695131315404:diamonds$fourC <- ifelse(diamonds$cut %in% c("Ideal","Premium") & diamonds$color %in% c("D", "E") & diamonds$clarity %in% c("IF", "VVS1") & diamonds$carat > quartile(diamonds$carat, .75), "yes", "no")
+1695131321998:diamonds$fourC <- ifelse(diamonds$cut %in% c("Ideal","Premium") & diamonds$color %in% c("D", "E") & diamonds$clarity %in% c("IF", "VVS1") & diamonds$carat > quantile(diamonds$carat, .75), "yes", "no")
+1695131347917:table(diamonds$fourC)
+1695233550010:# Density plots are smoothed versions of histograms
+1695233550059:ggplot(Orange, aes(x=circumference, fill=age)) +
+1695233550062:geom_density(alpha=0.7, bw=5) +
+1695233550064:theme(legend.position=c(.3,.8), legend.direction = "horizontal")
+1695234264109:View(txhousing)
+1695234707966:data
+1695234708693:data
+1695234712133:#glimpse() is a dplyr function similar to str() and head()
+1695234712143:glimpse(txhousing)
+1695234715034:#glimpse() is a dplyr function similar to str() and head()
+1695234715044:glimpse(txhousing)
+1695234717193:library(tidyverse) #IMPORTANT: YOU MUST RUN THIS FIRST!
+1695234718149:library(tidyverse) #IMPORTANT: YOU MUST RUN THIS FIRST!
+1695234718171:data(txhousing)
+1695234718464:#glimpse() is a dplyr function similar to str() and head()
+1695234718474:glimpse(txhousing)
+1695234719415:#glimpse() is a dplyr function similar to str() and head()
+1695234719427:glimpse(txhousing)
+1695234720286:## Chaining functions together with pipes
+1695234720945:```{R}
+1695234725647:txhousing %>%
+1695234725656:filter(year==2015, month==7) %>%
+1695234725666:select(city, median) %>%
+1695234725675:arrange(desc(median))
+1695234993207:chain1 %>% slice(1:10) %>%
+1695234993217:ggplot(aes(x=reorder(city,volume), y=volume))+geom_bar(stat="identity")+coord_flip()
+1695234999328:chain1 <- txhousing %>%
+1695234999338:filter(year==2009, month==1) %>%
+1695234999348:select(-date) %>%
+1695234999357:arrange(desc(volume))
+1695235001846:chain1 %>% slice(1:10) %>%
+1695235001857:ggplot(aes(city,volume)) + geom_bar(stat="identity") + coord_flip()
+1695235004689:chain1 %>% slice(1:10) %>%
+1695235004698:ggplot(aes(x=reorder(city,volume), y=volume))+geom_bar(stat="identity")+coord_flip()
+1695235030672:#create a column called state and put TX in every cell
+1695235030682:txhousing %>% mutate(state="TX")
+1695235031743:#create an average home price variable
+1695235031765:txhousing %>% mutate(average=volume/sales)
+1695235041719:head(txhousing) #where is our new variable? We didn't save it!
+1695235053607:txhousing <- txhousing %>% mutate(average=volume/sales)
+1695235055538:head(txhousing)
+1695235079586:txhousing %>% mutate(`sales_pctile`=ntile(sales,100))
+1695235927302:txhousing %>%
+1695235927312:mutate(logVolume = log10(volume)) %>%
+1695235927322:ggplot(aes(x=logVolume)) + geom_histogram()
+1695235947137:txhousing %>%
+1695235947148:mutate(logVolume = log10(volume)) %>%
+1695235947158:ggplot(aes(x=logVolume)) + geom_histogram()
+1695235948025:txhousing %>% ggplot(aes(x=volume)) + geom_histogram()

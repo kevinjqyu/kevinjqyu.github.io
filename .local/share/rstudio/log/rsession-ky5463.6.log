@@ -1,0 +1,1 @@
+2023-08-30T18:07:30.627037Z [rsession-ky5463] ERROR The previous R session terminated abnormally; LOGGED FROM: rstudio::core::Error {anonymous}::rInit(const rstudio::r::session::RInitInfo&) src/cpp/session/SessionMain.cpp:725
